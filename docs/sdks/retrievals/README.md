@@ -13,6 +13,7 @@ Retrieve
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="Retrieve" method="post" path="/retrievals" -->
 ```python
 from ragie import Ragie
 
@@ -52,4 +53,5 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |

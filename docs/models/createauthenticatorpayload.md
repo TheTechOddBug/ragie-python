@@ -39,9 +39,9 @@ value: models.OAuthCredentials = /* values here */
 value: models.OAuthCredentials = /* values here */
 ```
 
-### `models.OAuthCredentials`
+### `models.CreateGoogleAuthenticator`
 
 ```python
-value: models.OAuthCredentials = /* values here */
+value: models.CreateGoogleAuthenticator = /* values here */
 ```
 

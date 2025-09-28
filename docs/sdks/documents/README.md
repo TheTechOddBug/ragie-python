@@ -28,6 +28,7 @@ On ingest, the document goes through a series of steps before it is ready for re
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateDocument" method="post" path="/documents" -->
 ```python
 from ragie import Ragie
 
@@ -67,6 +68,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list
@@ -75,6 +77,7 @@ List all documents sorted by created_at in descending order. Results are paginat
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListDocuments" method="get" path="/documents" -->
 ```python
 from ragie import Ragie
 
@@ -112,6 +115,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create_raw
@@ -120,6 +124,7 @@ Ingest a document as raw text. On ingest, the document goes through a series of 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateDocumentRaw" method="post" path="/documents/raw" -->
 ```python
 from ragie import Ragie
 
@@ -157,14 +162,16 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create_document_from_url
 
-Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
+Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateDocumentFromUrl" method="post" path="/documents/url" -->
 ```python
 from ragie import Ragie
 
@@ -202,6 +209,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get
@@ -210,6 +218,7 @@ Get Document
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocument" method="get" path="/documents/{document_id}" -->
 ```python
 from ragie import Ragie
 
@@ -245,6 +254,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
@@ -253,6 +263,7 @@ Delete Document
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteDocument" method="delete" path="/documents/{document_id}" -->
 ```python
 from ragie import Ragie
 
@@ -289,6 +300,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update_file
@@ -297,6 +309,7 @@ Update Document File
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateDocumentFile" method="put" path="/documents/{document_id}/file" -->
 ```python
 from ragie import Ragie
 
@@ -338,6 +351,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update_raw
@@ -346,6 +360,7 @@ Update Document Raw
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateDocumentRaw" method="put" path="/documents/{document_id}/raw" -->
 ```python
 from ragie import Ragie
 
@@ -384,14 +399,16 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update_document_from_url
 
-Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
+Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateDocumentFromUrl" method="put" path="/documents/{document_id}/url" -->
 ```python
 from ragie import Ragie
 
@@ -430,6 +447,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## patch_metadata
@@ -438,6 +456,7 @@ Patch Document Metadata
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="PatchDocumentMetadata" method="patch" path="/documents/{document_id}/metadata" -->
 ```python
 from ragie import Ragie
 
@@ -485,6 +504,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_chunks
@@ -493,6 +513,7 @@ List all document chunks sorted by index in ascending order. May be limited to a
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocumentChunks" method="get" path="/documents/{document_id}/chunks" -->
 ```python
 from ragie import Ragie
 
@@ -532,6 +553,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_chunk
@@ -540,6 +562,7 @@ Gets a document chunk by its document and chunk ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocumentChunk" method="get" path="/documents/{document_id}/chunks/{chunk_id}" -->
 ```python
 from ragie import Ragie
 
@@ -576,6 +599,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_chunk_content
@@ -584,6 +608,7 @@ Returns the content of a document chunk in the requested format. Can be used to 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocumentChunkContent" method="get" path="/documents/{document_id}/chunks/{chunk_id}/content" -->
 ```python
 import ragie
 from ragie import Ragie
@@ -624,6 +649,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_content
@@ -632,6 +658,7 @@ Get the content of a document. The `media_type` parameter can be used to request
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocumentContent" method="get" path="/documents/{document_id}/content" -->
 ```python
 import ragie
 from ragie import Ragie
@@ -671,6 +698,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_source
@@ -679,6 +707,7 @@ Get the source file of a document. The source file is the original file that was
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocumentSource" method="get" path="/documents/{document_id}/source" -->
 ```python
 from ragie import Ragie
 
@@ -714,6 +743,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_summary
@@ -722,6 +752,7 @@ Get a LLM generated summary of the document. The summary is created when the doc
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="GetDocumentSummary" method="get" path="/documents/{document_id}/summary" -->
 ```python
 from ragie import Ragie
 
@@ -757,4 +788,5 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 404, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |

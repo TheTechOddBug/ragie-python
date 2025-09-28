@@ -16,6 +16,7 @@ Create White labeled connector credentials
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateAuthenticator" method="post" path="/authenticators" -->
 ```python
 import ragie
 from ragie import Ragie
@@ -56,6 +57,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list
@@ -64,6 +66,7 @@ List all authenticators sorted by created_at in descending order. Results are pa
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListAuthenticators" method="get" path="/authenticators" -->
 ```python
 from ragie import Ragie
 
@@ -98,6 +101,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create_authenticator_connection
@@ -106,6 +110,7 @@ Create a connector for a given authenticator. This requires credentials dependen
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateAuthenticatorConnection" method="post" path="/authenticators/{authenticator_id}/connection" -->
 ```python
 import ragie
 from ragie import Ragie
@@ -156,6 +161,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete_authenticator_connection
@@ -164,6 +170,7 @@ Delete an authenticator. This requires all connections created by that authentic
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteAuthenticatorConnection" method="delete" path="/authenticators/{authenticator_id}" -->
 ```python
 from ragie import Ragie
 
@@ -198,4 +205,5 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |

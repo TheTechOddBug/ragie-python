@@ -21,4 +21,5 @@ class ConnectorSource(str, Enum):
     S3 = "s3"
     GCS = "gcs"
     HUBSPOT = "hubspot"
+    WEBCRAWLER = "webcrawler"
     ZENDESK = "zendesk"

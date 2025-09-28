@@ -23,7 +23,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -67,6 +68,7 @@ with Ragie(
         connection=ragie.PublicGCSConnection(
             data=ragie.BucketData(
                 bucket="<value>",
+                import_file_metadata=False,
             ),
             credentials={
                 "key": "<value>",
@@ -83,7 +85,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -103,6 +106,7 @@ async def main():
             connection=ragie.PublicGCSConnection(
                 data=ragie.BucketData(
                     bucket="<value>",
+                    import_file_metadata=False,
                 ),
                 credentials={
                     "key": "<value>",
@@ -144,7 +148,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -206,7 +211,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio

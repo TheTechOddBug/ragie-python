@@ -81,7 +81,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -96,6 +96,9 @@ class Connections(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -178,7 +181,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -193,6 +196,9 @@ class Connections(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -279,7 +285,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -291,7 +297,7 @@ class Connections(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list(
@@ -316,6 +322,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -402,7 +411,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -414,7 +423,7 @@ class Connections(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list(
@@ -439,6 +448,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -519,7 +531,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -532,6 +544,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -612,7 +627,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -625,6 +640,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -695,7 +713,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -705,6 +723,9 @@ class Connections(BaseSDK):
                 Optional[models.ListConnectorSourceTypeInfo], http_res
             )
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -775,7 +796,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -785,6 +806,9 @@ class Connections(BaseSDK):
                 Optional[models.ListConnectorSourceTypeInfo], http_res
             )
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -877,7 +901,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -890,6 +914,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -982,7 +1009,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -995,6 +1022,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1080,7 +1110,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1093,6 +1123,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1178,7 +1211,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1191,6 +1224,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1268,7 +1304,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1281,6 +1317,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1358,7 +1397,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1371,6 +1410,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1448,7 +1490,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1461,6 +1503,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1538,7 +1583,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1551,6 +1596,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1642,7 +1690,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1655,6 +1703,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1746,7 +1797,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1759,6 +1810,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1850,7 +1904,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1863,6 +1917,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1954,7 +2011,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1967,6 +2024,9 @@ class Connections(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2044,7 +2104,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2059,6 +2119,9 @@ class Connections(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2136,7 +2199,7 @@ class Connections(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2151,6 +2214,9 @@ class Connections(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):

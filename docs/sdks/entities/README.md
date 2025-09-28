@@ -18,6 +18,7 @@ List all instructions.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListInstructions" method="get" path="/instructions" -->
 ```python
 from ragie import Ragie
 
@@ -50,6 +51,7 @@ with Ragie(
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | models.ErrorMessage | 401, 402, 429       | application/json    |
+| models.ErrorMessage | 500                 | application/json    |
 | models.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## create_instruction
@@ -58,6 +60,7 @@ Create a new instruction. Instructions are applied to documents as they are crea
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateInstruction" method="post" path="/instructions" -->
 ```python
 import ragie
 from ragie import Ragie
@@ -110,6 +113,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update_instruction
@@ -118,6 +122,7 @@ Update Instruction
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="UpdateInstruction" method="put" path="/instructions/{instruction_id}" -->
 ```python
 from ragie import Ragie
 
@@ -155,6 +160,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
@@ -163,6 +169,7 @@ Delete an instruction. This will delete the instruction and all entities generat
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="DeleteInstruction" method="delete" path="/instructions/{instruction_id}" -->
 ```python
 from ragie import Ragie
 
@@ -197,6 +204,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list_by_instruction
@@ -205,6 +213,7 @@ Get Instruction Extracted Entities
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListEntitiesByInstruction" method="get" path="/instructions/{instruction_id}/entities" -->
 ```python
 from ragie import Ragie
 
@@ -242,6 +251,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list_by_document
@@ -250,6 +260,7 @@ Get Document Extracted Entities
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="ListEntitiesByDocument" method="get" path="/documents/{document_id}/entities" -->
 ```python
 from ragie import Ragie
 
@@ -287,4 +298,5 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |

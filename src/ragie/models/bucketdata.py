@@ -3,12 +3,14 @@
 from __future__ import annotations
 from pydantic import model_serializer
 from ragie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
 class BucketDataTypedDict(TypedDict):
     bucket: str
     prefix: NotRequired[Nullable[str]]
+    import_file_metadata: NotRequired[bool]
 
 
 class BucketData(BaseModel):
@@ -16,9 +18,11 @@ class BucketData(BaseModel):
 
     prefix: OptionalNullable[str] = UNSET
 
+    import_file_metadata: Optional[bool] = False
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["prefix"]
+        optional_fields = ["prefix", "import_file_metadata"]
         nullable_fields = ["prefix"]
         null_default_fields = []
 

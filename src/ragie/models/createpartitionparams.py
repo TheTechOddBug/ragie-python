@@ -3,7 +3,18 @@
 from __future__ import annotations
 from pydantic import model_serializer
 from ragie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from typing_extensions import NotRequired, TypedDict
+from typing import Any, Dict, List, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
+
+
+MetadataSchemaTypedDict = TypeAliasType(
+    "MetadataSchemaTypedDict", Union[str, int, bool, List[str], Dict[str, Any]]
+)
+
+
+MetadataSchema = TypeAliasType(
+    "MetadataSchema", Union[str, int, bool, List[str], Dict[str, Any]]
+)
 
 
 class CreatePartitionParamsTypedDict(TypedDict):
@@ -32,6 +43,8 @@ class CreatePartitionParamsTypedDict(TypedDict):
     r"""Monthly limit, in MBs, for media hosted in the partition."""
     media_hosted_limit_max: NotRequired[Nullable[int]]
     r"""Maximum limit, in MBs, for media hosted in the partition."""
+    metadata_schema: NotRequired[Nullable[Dict[str, MetadataSchemaTypedDict]]]
+    r"""Metadata schema for the partition."""
 
 
 class CreatePartitionParams(BaseModel):
@@ -73,6 +86,9 @@ class CreatePartitionParams(BaseModel):
     media_hosted_limit_max: OptionalNullable[int] = UNSET
     r"""Maximum limit, in MBs, for media hosted in the partition."""
 
+    metadata_schema: OptionalNullable[Dict[str, MetadataSchema]] = UNSET
+    r"""Metadata schema for the partition."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -88,6 +104,7 @@ class CreatePartitionParams(BaseModel):
             "media_streamed_limit_max",
             "media_hosted_limit_monthly",
             "media_hosted_limit_max",
+            "metadata_schema",
         ]
         nullable_fields = [
             "pages_hosted_limit_monthly",
@@ -102,6 +119,7 @@ class CreatePartitionParams(BaseModel):
             "media_streamed_limit_max",
             "media_hosted_limit_monthly",
             "media_hosted_limit_max",
+            "metadata_schema",
         ]
         null_default_fields = []
 

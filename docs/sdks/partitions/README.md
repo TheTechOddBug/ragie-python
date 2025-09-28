@@ -17,6 +17,7 @@ List all partitions sorted by name in ascending order. Results are paginated wit
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_partitions_partitions_get" method="get" path="/partitions" -->
 ```python
 from ragie import Ragie
 
@@ -52,6 +53,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
@@ -60,6 +62,7 @@ Create a new partition. Partitions are used to scope documents, connections, and
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_partition_partitions_post" method="post" path="/partitions" -->
 ```python
 from ragie import Ragie
 
@@ -108,6 +111,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get
@@ -116,6 +120,7 @@ Get a partition by its ID. Includes usage information such as the number of docu
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_partition_partitions__partition_id__get" method="get" path="/partitions/{partition_id}" -->
 ```python
 from ragie import Ragie
 
@@ -150,6 +155,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
@@ -158,6 +164,7 @@ Deletes a partition and all of its associated data. This includes connections, d
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_partition_partitions__partition_id__delete" method="delete" path="/partitions/{partition_id}" -->
 ```python
 from ragie import Ragie
 
@@ -192,6 +199,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## set_limits
@@ -200,6 +208,7 @@ Sets limits on a partition. Limits can be set on the total number of pages a par
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="set_partition_limits_partitions__partition_id__limits_put" method="put" path="/partitions/{partition_id}/limits" -->
 ```python
 from ragie import Ragie
 
@@ -248,4 +257,5 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
