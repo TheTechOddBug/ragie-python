@@ -45,7 +45,15 @@
 >
 > Once a Python version reaches its [official end of life date](https://devguide.python.org/versions/), a 3-month grace period is provided for users to upgrade. Following this grace period, the minimum python version supported in the SDK will be updated.
 
-The SDK can be installed with either *pip* or *poetry* package managers.
+The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
+
+### uv
+
+*uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
+
+```bash
+uv add ragie
+```
 
 ### PIP
 
@@ -134,7 +142,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -180,6 +189,7 @@ with Ragie(
         connection=ragie.PublicGCSConnection(
             data=ragie.BucketData(
                 bucket="<value>",
+                import_file_metadata=False,
             ),
             credentials={
                 "key": "<value>",
@@ -196,7 +206,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -216,6 +227,7 @@ async def main():
             connection=ragie.PublicGCSConnection(
                 data=ragie.BucketData(
                     bucket="<value>",
+                    import_file_metadata=False,
                 ),
                 credentials={
                     "key": "<value>",
@@ -259,7 +271,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -323,7 +336,8 @@ with Ragie(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -424,6 +438,11 @@ asyncio.run(main())
 * [delete](docs/sdks/partitions/README.md#delete) - Delete Partition
 * [set_limits](docs/sdks/partitions/README.md#set_limits) - Set Partition Limits
 
+
+### [responses](docs/sdks/responses/README.md)
+
+* [create](docs/sdks/responses/README.md#create) - Create Response
+* [get](docs/sdks/responses/README.md#get) - Get Response
 
 ### [retrievals](docs/sdks/retrievals/README.md)
 

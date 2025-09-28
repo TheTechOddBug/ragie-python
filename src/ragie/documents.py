@@ -82,7 +82,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -97,6 +97,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -179,7 +182,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -194,6 +197,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -273,7 +279,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -285,7 +291,7 @@ class Documents(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list(
@@ -312,6 +318,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -391,7 +400,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -403,7 +412,7 @@ class Documents(BaseSDK):
                 return None
 
             next_cursor = next_cursor[0]
-            if next_cursor is None:
+            if next_cursor is None or str(next_cursor).strip() == "":
                 return None
 
             return self.list(
@@ -430,6 +439,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -512,7 +524,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -527,6 +539,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -609,7 +624,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -624,6 +639,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -649,7 +667,7 @@ class Documents(BaseSDK):
     ) -> Optional[models.Document]:
         r"""Create Document From Url
 
-        Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
+        Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -707,7 +725,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -722,6 +740,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -747,7 +768,7 @@ class Documents(BaseSDK):
     ) -> Optional[models.Document]:
         r"""Create Document From Url
 
-        Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
+        Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -805,7 +826,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["400", "401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["400", "401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -820,6 +841,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "402", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -898,7 +922,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -913,6 +937,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -991,7 +1018,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1006,6 +1033,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1087,7 +1117,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1102,6 +1132,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1183,7 +1216,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1198,6 +1231,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1290,7 +1326,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1307,6 +1343,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1399,7 +1438,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1416,6 +1455,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1508,7 +1550,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1523,6 +1565,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1615,7 +1660,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1630,6 +1675,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1657,7 +1705,7 @@ class Documents(BaseSDK):
     ) -> Optional[models.DocumentURLUpdate]:
         r"""Update Document Url
 
-        Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
+        Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
 
         :param document_id: The id of the document.
         :param update_document_from_url_params:
@@ -1725,7 +1773,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1740,6 +1788,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1767,7 +1818,7 @@ class Documents(BaseSDK):
     ) -> Optional[models.DocumentURLUpdate]:
         r"""Update Document Url
 
-        Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
+        Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
 
         :param document_id: The id of the document.
         :param update_document_from_url_params:
@@ -1835,7 +1886,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1850,6 +1901,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1943,7 +1997,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -1961,6 +2015,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2054,7 +2111,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2072,6 +2129,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2151,7 +2211,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2166,6 +2226,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2245,7 +2308,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2260,6 +2323,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2343,7 +2409,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2360,6 +2426,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2443,7 +2512,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2460,6 +2529,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2540,7 +2612,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2553,6 +2625,9 @@ class Documents(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2633,7 +2708,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2646,6 +2721,9 @@ class Documents(BaseSDK):
             )
             raise models.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2725,7 +2803,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2742,6 +2820,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2821,7 +2902,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2838,6 +2919,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2918,7 +3002,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             stream=True,
             retry_config=retry_config,
         )
@@ -2935,6 +3019,12 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            http_res_text = utils.stream_to_text(http_res)
+            response_data = unmarshal_json_response(
+                models.ErrorMessageData, http_res, http_res_text
+            )
+            raise models.ErrorMessage(response_data, http_res, http_res_text)
+        if utils.match_response(http_res, "500", "application/json"):
             http_res_text = utils.stream_to_text(http_res)
             response_data = unmarshal_json_response(
                 models.ErrorMessageData, http_res, http_res_text
@@ -3019,7 +3109,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             stream=True,
             retry_config=retry_config,
         )
@@ -3036,6 +3126,12 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            response_data = unmarshal_json_response(
+                models.ErrorMessageData, http_res, http_res_text
+            )
+            raise models.ErrorMessage(response_data, http_res, http_res_text)
+        if utils.match_response(http_res, "500", "application/json"):
             http_res_text = await utils.stream_to_text_async(http_res)
             response_data = unmarshal_json_response(
                 models.ErrorMessageData, http_res, http_res_text
@@ -3120,7 +3216,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -3135,6 +3231,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -3215,7 +3314,7 @@ class Documents(BaseSDK):
                 security_source=self.sdk_configuration.security,
             ),
             request=req,
-            error_status_codes=["401", "402", "404", "422", "429", "4XX", "5XX"],
+            error_status_codes=["401", "402", "404", "422", "429", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -3230,6 +3329,9 @@ class Documents(BaseSDK):
         if utils.match_response(
             http_res, ["401", "402", "404", "429"], "application/json"
         ):
+            response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
+            raise models.ErrorMessage(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):

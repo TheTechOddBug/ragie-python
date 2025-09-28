@@ -1,0 +1,13 @@
+# CodeStep
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `type`                                                                | *Optional[Literal["code"]]*                                           | :heavy_minus_sign:                                                    | N/A                                                                   |
+| `think`                                                               | *str*                                                                 | :heavy_check_mark:                                                    | N/A                                                                   |
+| `current_question`                                                    | *str*                                                                 | :heavy_check_mark:                                                    | N/A                                                                   |
+| `code_issue`                                                          | *str*                                                                 | :heavy_check_mark:                                                    | The natural language description of the code issue you need to solve. |
+| `code`                                                                | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | The code you generated to solve the code issue.                       |
+| `code_result`                                                         | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | The result of the code you generated after executing it.              |

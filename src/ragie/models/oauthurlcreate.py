@@ -54,6 +54,7 @@ class OAuthURLCreateTypedDict(TypedDict):
     r"""The maximum number of pages a connection will sync. The connection will be disabled after this limit is reached. Some in progress documents may continue processing after the limit is reached. The limit will be enforced at the start of the next document sync. Remove the limit by setting to null."""
     config: NotRequired[Dict[str, Any]]
     r"""Optional config per connector"""
+    authenticator_id: NotRequired[Nullable[str]]
 
 
 class OAuthURLCreate(BaseModel):
@@ -77,6 +78,8 @@ class OAuthURLCreate(BaseModel):
     config: Optional[Dict[str, Any]] = None
     r"""Optional config per connector"""
 
+    authenticator_id: OptionalNullable[str] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -87,8 +90,15 @@ class OAuthURLCreate(BaseModel):
             "theme",
             "page_limit",
             "config",
+            "authenticator_id",
         ]
-        nullable_fields = ["partition", "mode", "theme", "page_limit"]
+        nullable_fields = [
+            "partition",
+            "mode",
+            "theme",
+            "page_limit",
+            "authenticator_id",
+        ]
         null_default_fields = []
 
         serialized = handler(self)

@@ -1,0 +1,11 @@
+# FinalAnswer
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `text`                                                                                   | *str*                                                                                    | :heavy_check_mark:                                                                       | The final answer to the question.                                                        |
+| `evidence`                                                                               | List[[models.Evidence](../models/evidence.md)]                                           | :heavy_minus_sign:                                                                       | The evidence used to derive the answer.                                                  |
+| `steps`                                                                                  | List[[models.Steps](../models/steps.md)]                                                 | :heavy_minus_sign:                                                                       | The steps that led to the answer.                                                        |
+| `usage`                                                                                  | [Optional[models.AgentHoppsModelsModelsUsage]](../models/agenthoppsmodelsmodelsusage.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |

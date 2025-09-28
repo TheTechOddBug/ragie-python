@@ -23,6 +23,7 @@ Create a connection. This is only for non-oauth connections such as S3 compatibl
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="CreateConnection" method="post" path="/connection" -->
 ```python
 import ragie
 from ragie import Ragie
@@ -39,6 +40,7 @@ with Ragie(
         connection=ragie.PublicGCSConnection(
             data=ragie.BucketData(
                 bucket="<value>",
+                import_file_metadata=False,
             ),
             credentials={
                 "key": "<value>",
@@ -71,6 +73,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list
@@ -79,6 +82,7 @@ List all connections sorted by created_at in descending order. Results are pagin
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_connections_connections_get" method="get" path="/connections" -->
 ```python
 from ragie import Ragie
 
@@ -116,6 +120,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create_o_auth_redirect_url
@@ -124,6 +129,7 @@ Creates a redirect url to redirect the user to when initializing an embedded con
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_oauth_redirect_url_connections_oauth_post" method="post" path="/connections/oauth" -->
 ```python
 from ragie import Ragie
 
@@ -161,6 +167,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## list_connection_source_types
@@ -169,6 +176,7 @@ List available connection source types like 'google_drive' and 'notion' along wi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_connection_source_types_connections_source_type_get" method="get" path="/connections/source-type" -->
 ```python
 from ragie import Ragie
 
@@ -201,6 +209,7 @@ with Ragie(
 | Error Type          | Status Code         | Content Type        |
 | ------------------- | ------------------- | ------------------- |
 | models.ErrorMessage | 401, 402, 429       | application/json    |
+| models.ErrorMessage | 500                 | application/json    |
 | models.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## set_enabled
@@ -209,6 +218,7 @@ Enable or disable the connection. A disabled connection won't sync.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="set_connection_enabled_connections__connection_id__enabled_put" method="put" path="/connections/{connection_id}/enabled" -->
 ```python
 from ragie import Ragie
 
@@ -246,6 +256,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
@@ -254,6 +265,7 @@ Updates a connections metadata or mode. These changes will be seen after the nex
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_connection_connections__connection_id__put" method="put" path="/connections/{connection_id}" -->
 ```python
 from ragie import Ragie
 
@@ -292,6 +304,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get
@@ -300,6 +313,7 @@ Get a connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_connection_connections__connection_id__get" method="get" path="/connections/{connection_id}" -->
 ```python
 from ragie import Ragie
 
@@ -334,6 +348,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## get_stats
@@ -342,6 +357,7 @@ Lists connection stats: total documents active documents, total active pages.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_connection_stats_connections__connection_id__stats_get" method="get" path="/connections/{connection_id}/stats" -->
 ```python
 from ragie import Ragie
 
@@ -376,6 +392,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## set_limits
@@ -384,6 +401,7 @@ Sets limits on a connection. Limits can be set on the total number of pages a co
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="set_connection_limits_connections__connection_id__limit_put" method="put" path="/connections/{connection_id}/limit" -->
 ```python
 from ragie import Ragie
 
@@ -421,6 +439,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
@@ -429,6 +448,7 @@ Schedules a connection to be deleted. You can choose to keep the files from the 
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_connection_connections__connection_id__delete_post" method="post" path="/connections/{connection_id}/delete" -->
 ```python
 from ragie import Ragie
 
@@ -466,6 +486,7 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 401, 402, 429              | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## sync
@@ -474,6 +495,7 @@ Schedules a connector to sync as soon as possible.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="SyncConnection" method="post" path="/connections/{connection_id}/sync" -->
 ```python
 from ragie import Ragie
 
@@ -508,4 +530,5 @@ with Ragie(
 | -------------------------- | -------------------------- | -------------------------- |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorMessage        | 400, 401, 402, 429         | application/json           |
+| models.ErrorMessage        | 500                        | application/json           |
 | models.SDKError            | 4XX, 5XX                   | \*/\*                      |
