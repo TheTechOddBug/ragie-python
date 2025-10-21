@@ -8,12 +8,12 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 CreateDocumentRawParamsMetadataTypedDict = TypeAliasType(
-    "CreateDocumentRawParamsMetadataTypedDict", Union[str, int, bool, List[str]]
+    "CreateDocumentRawParamsMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 CreateDocumentRawParamsMetadata = TypeAliasType(
-    "CreateDocumentRawParamsMetadata", Union[str, int, bool, List[str]]
+    "CreateDocumentRawParamsMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

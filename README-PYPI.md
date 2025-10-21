@@ -435,9 +435,9 @@ asyncio.run(main())
 * [list](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/partitions/README.md#list) - List Partitions
 * [create](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/partitions/README.md#create) - Create Partition
 * [get](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/partitions/README.md#get) - Get Partition
+* [update](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/partitions/README.md#update) - Update Partition
 * [delete](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/partitions/README.md#delete) - Delete Partition
 * [set_limits](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/partitions/README.md#set_limits) - Set Partition Limits
-
 
 ### [responses](https://github.com/ragieai/ragie-python/blob/master/docs/sdks/responses/README.md)
 

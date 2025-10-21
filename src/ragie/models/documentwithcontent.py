@@ -9,12 +9,12 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 DocumentWithContentMetadataTypedDict = TypeAliasType(
-    "DocumentWithContentMetadataTypedDict", Union[str, int, bool, List[str]]
+    "DocumentWithContentMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 DocumentWithContentMetadata = TypeAliasType(
-    "DocumentWithContentMetadata", Union[str, int, bool, List[str]]
+    "DocumentWithContentMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

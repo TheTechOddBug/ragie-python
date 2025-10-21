@@ -13,6 +13,7 @@ class PlanStepTypedDict(TypedDict):
     think: str
     current_question: str
     type: Literal["plan"]
+    errored: NotRequired[bool]
     questions_to_answer: NotRequired[List[str]]
     r"""The questions that need to be answered to answer the original question."""
 
@@ -26,6 +27,8 @@ class PlanStep(BaseModel):
         Annotated[Optional[Literal["plan"]], AfterValidator(validate_const("plan"))],
         pydantic.Field(alias="type"),
     ] = "plan"
+
+    errored: Optional[bool] = False
 
     questions_to_answer: Optional[List[str]] = None
     r"""The questions that need to be answered to answer the original question."""

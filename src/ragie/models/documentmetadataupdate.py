@@ -7,12 +7,12 @@ from typing_extensions import TypeAliasType, TypedDict
 
 
 DocumentMetadataUpdateMetadataTypedDict = TypeAliasType(
-    "DocumentMetadataUpdateMetadataTypedDict", Union[str, int, bool, List[str]]
+    "DocumentMetadataUpdateMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 DocumentMetadataUpdateMetadata = TypeAliasType(
-    "DocumentMetadataUpdateMetadata", Union[str, int, bool, List[str]]
+    "DocumentMetadataUpdateMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

@@ -11,12 +11,12 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 OAuthURLCreateMetadataTypedDict = TypeAliasType(
-    "OAuthURLCreateMetadataTypedDict", Union[str, int, bool, List[str]]
+    "OAuthURLCreateMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 OAuthURLCreateMetadata = TypeAliasType(
-    "OAuthURLCreateMetadata", Union[str, int, bool, List[str]]
+    "OAuthURLCreateMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

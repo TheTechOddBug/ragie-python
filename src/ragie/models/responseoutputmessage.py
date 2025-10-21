@@ -10,14 +10,14 @@ from typing import List, Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
 
-class ResponseOutputTypedDict(TypedDict):
+class ResponseOutputMessageTypedDict(TypedDict):
     id: str
     content: List[ResponseContentTypedDict]
     type: Literal["message"]
     role: Literal["assistant"]
 
 
-class ResponseOutput(BaseModel):
+class ResponseOutputMessage(BaseModel):
     id: str
 
     content: List[ResponseContent]

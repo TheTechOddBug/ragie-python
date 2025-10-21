@@ -10,12 +10,12 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 ConnectionMetadataTypedDict = TypeAliasType(
-    "ConnectionMetadataTypedDict", Union[str, int, bool, List[str]]
+    "ConnectionMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 ConnectionMetadata = TypeAliasType(
-    "ConnectionMetadata", Union[str, int, bool, List[str]]
+    "ConnectionMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

@@ -7,14 +7,15 @@ from pydantic.functional_validators import AfterValidator
 from ragie.types import BaseModel
 from ragie.utils import validate_const
 from typing import Literal, Optional
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class SearchStepTypedDict(TypedDict):
     think: str
     current_question: str
     search: SearchTypedDict
-    type: Literal["search"]
+    type: Literal["base_search"]
+    errored: NotRequired[bool]
 
 
 class SearchStep(BaseModel):
@@ -26,7 +27,10 @@ class SearchStep(BaseModel):
 
     TYPE: Annotated[
         Annotated[
-            Optional[Literal["search"]], AfterValidator(validate_const("search"))
+            Optional[Literal["base_search"]],
+            AfterValidator(validate_const("base_search")),
         ],
         pydantic.Field(alias="type"),
-    ] = "search"
+    ] = "base_search"
+
+    errored: Optional[bool] = False

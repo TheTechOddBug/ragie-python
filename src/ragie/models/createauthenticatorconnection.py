@@ -54,12 +54,13 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
 CreateAuthenticatorConnectionMetadataTypedDict = TypeAliasType(
-    "CreateAuthenticatorConnectionMetadataTypedDict", Union[str, int, bool, List[str]]
+    "CreateAuthenticatorConnectionMetadataTypedDict",
+    Union[str, int, float, bool, List[str]],
 )
 
 
 CreateAuthenticatorConnectionMetadata = TypeAliasType(
-    "CreateAuthenticatorConnectionMetadata", Union[str, int, bool, List[str]]
+    "CreateAuthenticatorConnectionMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

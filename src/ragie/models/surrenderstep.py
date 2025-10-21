@@ -7,7 +7,7 @@ from pydantic.functional_validators import AfterValidator
 from ragie.types import BaseModel
 from ragie.utils import validate_const
 from typing import Literal, Optional
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class SurrenderStepTypedDict(TypedDict):
@@ -15,6 +15,7 @@ class SurrenderStepTypedDict(TypedDict):
     current_question: str
     partial_answer: AnswerTypedDict
     type: Literal["surrender"]
+    errored: NotRequired[bool]
 
 
 class SurrenderStep(BaseModel):
@@ -30,3 +31,5 @@ class SurrenderStep(BaseModel):
         ],
         pydantic.Field(alias="type"),
     ] = "surrender"
+
+    errored: Optional[bool] = False

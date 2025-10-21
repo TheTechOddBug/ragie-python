@@ -6,12 +6,27 @@ from .partitionstats import PartitionStats, PartitionStatsTypedDict
 from datetime import datetime
 from pydantic import model_serializer
 from ragie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from typing_extensions import NotRequired, TypedDict
+from typing import Any, Dict, List, Union
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
+
+
+PartitionDetailMetadataSchemaTypedDict = TypeAliasType(
+    "PartitionDetailMetadataSchemaTypedDict",
+    Union[str, int, bool, List[str], Dict[str, Any]],
+)
+
+
+PartitionDetailMetadataSchema = TypeAliasType(
+    "PartitionDetailMetadataSchema", Union[str, int, bool, List[str], Dict[str, Any]]
+)
 
 
 class PartitionDetailTypedDict(TypedDict):
     name: str
     is_default: bool
+    description: Nullable[str]
+    context_aware: bool
+    metadata_schema: Nullable[Dict[str, PartitionDetailMetadataSchemaTypedDict]]
     limits: PartitionLimitsTypedDict
     stats: PartitionStatsTypedDict
     limit_exceeded_at: NotRequired[Nullable[datetime]]
@@ -23,6 +38,12 @@ class PartitionDetail(BaseModel):
 
     is_default: bool
 
+    description: Nullable[str]
+
+    context_aware: bool
+
+    metadata_schema: Nullable[Dict[str, PartitionDetailMetadataSchema]]
+
     limits: PartitionLimits
 
     stats: PartitionStats
@@ -33,7 +54,7 @@ class PartitionDetail(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = ["limit_exceeded_at"]
-        nullable_fields = ["limit_exceeded_at"]
+        nullable_fields = ["limit_exceeded_at", "description", "metadata_schema"]
         null_default_fields = []
 
         serialized = handler(self)

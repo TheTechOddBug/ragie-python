@@ -15,6 +15,7 @@ class AnswerStepTypedDict(TypedDict):
     current_question: str
     answer: AnswerTypedDict
     type: Literal["answer"]
+    errored: NotRequired[bool]
     other_resolved_question_ids: NotRequired[List[str]]
     r"""A list of question ids that are no longer relevant to the current answer referenced by their IDs."""
 
@@ -32,6 +33,8 @@ class AnswerStep(BaseModel):
         ],
         pydantic.Field(alias="type"),
     ] = "answer"
+
+    errored: Optional[bool] = False
 
     other_resolved_question_ids: Optional[List[str]] = None
     r"""A list of question ids that are no longer relevant to the current answer referenced by their IDs."""

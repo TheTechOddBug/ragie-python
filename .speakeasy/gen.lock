@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 891d898b-5da4-4813-8dd3-fceb5b9832fe
 management:
-  docChecksum: 6393a636aa9daa2d4e107ee87ca507d2
+  docChecksum: bf28c7679ddea849daa903e0993f7d99
   docVersion: 1.0.0
-  speakeasyVersion: 1.631.3
-  generationVersion: 2.716.14
-  releaseVersion: 1.11.0
-  configChecksum: b0ca3d0df03ae8937ed67c6694fcdd85
+  speakeasyVersion: 1.637.3
+  generationVersion: 2.727.9
+  releaseVersion: 1.13.0
+  configChecksum: 44adeaa41b793605d2a6b3befc34dec8
   repoURL: https://github.com/ragieai/ragie-python.git
   installationURL: https://github.com/ragieai/ragie-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.22.0
+    core: 5.23.0
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     downloadStreams: 1.0.1
@@ -26,16 +26,16 @@ features:
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
     globalServerURLs: 3.1.1
-    groups: 3.0.0
+    groups: 3.0.1
     methodArguments: 1.0.2
     multipartFileContentType: 1.0.0
     nameOverrides: 3.0.1
     nullables: 1.0.1
-    pagination: 3.0.6
+    pagination: 3.0.7
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.1.0
-    unions: 3.0.5
+    unions: 3.1.0
     uploadStreams: 1.0.0
 generatedFiles:
   - .devcontainer/README.md
@@ -66,6 +66,9 @@ generatedFiles:
   - docs/models/basegetauthenticator.md
   - docs/models/bucketdata.md
   - docs/models/codeinterpreterevidence.md
+  - docs/models/codeinterpreteroutput.md
+  - docs/models/codeinterpreteroutputlogs.md
+  - docs/models/codeinterpreteroutputstatus.md
   - docs/models/codestep.md
   - docs/models/confluencedata.md
   - docs/models/connection.md
@@ -92,6 +95,7 @@ generatedFiles:
   - docs/models/createinstructionparams.md
   - docs/models/createinstructionparamsscope.md
   - docs/models/createpartitionparams.md
+  - docs/models/createpartitionparamsmetadataschema.md
   - docs/models/data.md
   - docs/models/deleteauthenticatorconnectionrequest.md
   - docs/models/deleteconnectionconnectionsconnectioniddeletepostrequest.md
@@ -123,7 +127,11 @@ generatedFiles:
   - docs/models/errormessage.md
   - docs/models/evaluatedanswerstep.md
   - docs/models/evidence.md
+  - docs/models/failedstep.md
   - docs/models/file.md
+  - docs/models/filesearchoutput.md
+  - docs/models/filesearchoutputstatus.md
+  - docs/models/filesearchresult.md
   - docs/models/finalanswer.md
   - docs/models/folderdata.md
   - docs/models/freshdeskcredentials.md
@@ -184,10 +192,12 @@ generatedFiles:
   - docs/models/one1.md
   - docs/models/one2.md
   - docs/models/onedrivedata.md
+  - docs/models/output.md
   - docs/models/outputtokendetails.md
   - docs/models/pagination.md
   - docs/models/partition.md
   - docs/models/partitiondetail.md
+  - docs/models/partitiondetailmetadataschema.md
   - docs/models/partitionlimitparams.md
   - docs/models/partitionlimits.md
   - docs/models/partitionlist.md
@@ -208,25 +218,32 @@ generatedFiles:
   - docs/models/publicintercomconnection.md
   - docs/models/publics3compatibleconnection.md
   - docs/models/publiczendeskconnection.md
+  - docs/models/querydetails.md
   - docs/models/queryparam1.md
   - docs/models/queryparammediatype.md
   - docs/models/ragieapischemaresponseusage.md
   - docs/models/ragieevidence.md
   - docs/models/reason.md
   - docs/models/reasoning.md
+  - docs/models/reasoningoutput.md
+  - docs/models/reasoningoutputstatus.md
+  - docs/models/reasoningsummary.md
+  - docs/models/reasoningtext.md
   - docs/models/request.md
   - docs/models/response.md
   - docs/models/responsecontent.md
   - docs/models/responseok.md
-  - docs/models/responseoutput.md
+  - docs/models/responseoutputmessage.md
   - docs/models/retrieval.md
   - docs/models/retrieveparams.md
   - docs/models/s3compatiblecredentials.md
   - docs/models/scope.md
   - docs/models/scoredchunk.md
   - docs/models/search.md
+  - docs/models/searcheffort.md
   - docs/models/searchresultlink.md
   - docs/models/searchstep.md
+  - docs/models/searchstepwithquerydetails.md
   - docs/models/security.md
   - docs/models/setconnectionenabledconnectionsconnectionidenabledputrequest.md
   - docs/models/setconnectionenabledpayload.md
@@ -265,6 +282,9 @@ generatedFiles:
   - docs/models/updatedocumentrawrequest.md
   - docs/models/updateinstructionparams.md
   - docs/models/updateinstructionrequest.md
+  - docs/models/updatepartitionparams.md
+  - docs/models/updatepartitionparamsmetadataschema.md
+  - docs/models/updatepartitionpartitionspartitionidpatchrequest.md
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
   - docs/models/video.md
@@ -277,7 +297,6 @@ generatedFiles:
   - docs/sdks/documents/README.md
   - docs/sdks/entities/README.md
   - docs/sdks/partitions/README.md
-  - docs/sdks/ragie/README.md
   - docs/sdks/responses/README.md
   - docs/sdks/retrievals/README.md
   - poetry.toml
@@ -320,6 +339,8 @@ generatedFiles:
   - src/ragie/models/basegetauthenticator.py
   - src/ragie/models/bucketdata.py
   - src/ragie/models/codeinterpreterevidence.py
+  - src/ragie/models/codeinterpreteroutput.py
+  - src/ragie/models/codeinterpreteroutputlogs.py
   - src/ragie/models/codestep.py
   - src/ragie/models/confluencedata.py
   - src/ragie/models/connection.py
@@ -361,6 +382,9 @@ generatedFiles:
   - src/ragie/models/entitylist.py
   - src/ragie/models/errormessage.py
   - src/ragie/models/evaluatedanswerstep.py
+  - src/ragie/models/failedstep.py
+  - src/ragie/models/filesearchoutput.py
+  - src/ragie/models/filesearchresult.py
   - src/ragie/models/finalanswer.py
   - src/ragie/models/folderdata.py
   - src/ragie/models/freshdeskcredentials.py
@@ -418,15 +442,19 @@ generatedFiles:
   - src/ragie/models/publicintercomconnection.py
   - src/ragie/models/publics3compatibleconnection.py
   - src/ragie/models/publiczendeskconnection.py
+  - src/ragie/models/querydetails.py
   - src/ragie/models/ragie_api_schema_response_usage.py
   - src/ragie/models/ragieerror.py
   - src/ragie/models/ragieevidence.py
   - src/ragie/models/reasoning.py
+  - src/ragie/models/reasoningoutput.py
+  - src/ragie/models/reasoningsummary.py
+  - src/ragie/models/reasoningtext.py
   - src/ragie/models/request.py
   - src/ragie/models/response.py
   - src/ragie/models/responsecontent.py
   - src/ragie/models/responseok.py
-  - src/ragie/models/responseoutput.py
+  - src/ragie/models/responseoutputmessage.py
   - src/ragie/models/responsevalidationerror.py
   - src/ragie/models/retrieval.py
   - src/ragie/models/retrieveparams.py
@@ -434,8 +462,10 @@ generatedFiles:
   - src/ragie/models/scoredchunk.py
   - src/ragie/models/sdkerror.py
   - src/ragie/models/search.py
+  - src/ragie/models/searcheffort.py
   - src/ragie/models/searchresultlink.py
   - src/ragie/models/searchstep.py
+  - src/ragie/models/searchstepwithquerydetails.py
   - src/ragie/models/security.py
   - src/ragie/models/set_connection_enabled_connections_connection_id_enabled_putop.py
   - src/ragie/models/set_connection_limits_connections_connection_id_limit_putop.py
@@ -449,6 +479,7 @@ generatedFiles:
   - src/ragie/models/syncconnectionop.py
   - src/ragie/models/tool.py
   - src/ragie/models/update_connection_connections_connection_id_putop.py
+  - src/ragie/models/update_partition_partitions_partition_id_patchop.py
   - src/ragie/models/updatedocumentfileop.py
   - src/ragie/models/updatedocumentfileparams.py
   - src/ragie/models/updatedocumentfromurlop.py
@@ -457,6 +488,7 @@ generatedFiles:
   - src/ragie/models/updatedocumentrawparams.py
   - src/ragie/models/updateinstructionop.py
   - src/ragie/models/updateinstructionparams.py
+  - src/ragie/models/updatepartitionparams.py
   - src/ragie/models/validationerror.py
   - src/ragie/models/videomodalitydata.py
   - src/ragie/models/wordtimestamp.py
@@ -1011,7 +1043,7 @@ examples:
           page_size: 10
       responses:
         "200":
-          application/json: {"pagination": {"total_count": 816318}, "partitions": [{"name": "<value>", "is_default": true, "limit_exceeded_at": "2023-01-29T08:25:20.822Z", "limits": {"pages_processed_limit_monthly": 13.73, "pages_hosted_limit_monthly": 112.66, "pages_processed_limit_max": 2218.53, "pages_hosted_limit_max": 8228.05}}]}
+          application/json: {"pagination": {"total_count": 816318}, "partitions": [{"name": "<value>", "is_default": true, "limit_exceeded_at": "2023-01-29T08:25:20.822Z", "description": "after abaft past thorny ha writhing", "context_aware": true, "metadata_schema": {"key": {"key": "<value>"}}, "limits": {"pages_processed_limit_monthly": 13.73, "pages_hosted_limit_monthly": 112.66, "pages_processed_limit_max": 2218.53, "pages_hosted_limit_max": 8228.05}}]}
         "422":
           application/json: {}
         "401":
@@ -1024,7 +1056,7 @@ examples:
         application/json: {"name": "<value>", "pages_hosted_limit_monthly": 1000, "pages_processed_limit_monthly": 1000, "pages_hosted_limit_max": 1000, "pages_processed_limit_max": 1000, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}
       responses:
         "200":
-          application/json: {"name": "<value>", "is_default": false, "limit_exceeded_at": "2025-06-11T12:00:00Z", "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}}
+          application/json: {"name": "<value>", "is_default": false, "limit_exceeded_at": "2025-06-11T12:00:00Z", "description": "kowtow huzzah if gnaw which", "context_aware": false, "metadata_schema": {}, "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}}
         "422":
           application/json: {}
         "401":
@@ -1038,7 +1070,7 @@ examples:
           partition_id: "<id>"
       responses:
         "200":
-          application/json: {"name": "<value>", "is_default": true, "limit_exceeded_at": "2025-06-11T12:00:00Z", "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}, "stats": {"pages_processed_monthly": 1000, "pages_hosted_monthly": 1000, "pages_processed_total": 1000, "pages_hosted_total": 1000, "document_count": 1000, "video_processed_monthly": 60, "video_processed_total": 60, "audio_processed_monthly": 60, "audio_processed_total": 60, "media_streamed_monthly": 1024, "media_streamed_total": 1024, "media_hosted_monthly": 1024, "media_hosted_total": 1024}}
+          application/json: {"name": "<value>", "is_default": true, "limit_exceeded_at": "2025-06-11T12:00:00Z", "description": "accidentally neatly alienated phrase furthermore overload jovially quinoa", "context_aware": false, "metadata_schema": {}, "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}, "stats": {"pages_processed_monthly": 1000, "pages_hosted_monthly": 1000, "pages_processed_total": 1000, "pages_hosted_total": 1000, "document_count": 1000, "video_processed_monthly": 60, "video_processed_total": 60, "audio_processed_monthly": 60, "audio_processed_total": 60, "media_streamed_monthly": 1024, "media_streamed_total": 1024, "media_hosted_monthly": 1024, "media_hosted_total": 1024}}
         "422":
           application/json: {}
         "401":
@@ -1068,7 +1100,7 @@ examples:
         application/json: {"pages_hosted_limit_monthly": 1000, "pages_processed_limit_monthly": 1000, "pages_hosted_limit_max": 1000, "pages_processed_limit_max": 1000, "video_processed_limit_monthly": 3600, "video_processed_limit_max": 3600, "audio_processed_limit_monthly": 3600, "audio_processed_limit_max": 3600, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}
       responses:
         "200":
-          application/json: {"name": "<value>", "is_default": true, "limit_exceeded_at": "2025-06-11T12:00:00Z", "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}, "stats": {"pages_processed_monthly": 1000, "pages_hosted_monthly": 1000, "pages_processed_total": 1000, "pages_hosted_total": 1000, "document_count": 1000, "video_processed_monthly": 60, "video_processed_total": 60, "audio_processed_monthly": 60, "audio_processed_total": 60, "media_streamed_monthly": 1024, "media_streamed_total": 1024, "media_hosted_monthly": 1024, "media_hosted_total": 1024}}
+          application/json: {"name": "<value>", "is_default": true, "limit_exceeded_at": "2025-06-11T12:00:00Z", "description": "acceptable consequently slowly cutlet worth pfft resolve", "context_aware": false, "metadata_schema": {}, "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}, "stats": {"pages_processed_monthly": 1000, "pages_hosted_monthly": 1000, "pages_processed_total": 1000, "pages_hosted_total": 1000, "document_count": 1000, "video_processed_monthly": 60, "video_processed_total": 60, "audio_processed_monthly": 60, "audio_processed_total": 60, "media_streamed_monthly": 1024, "media_streamed_total": 1024, "media_hosted_monthly": 1024, "media_hosted_total": 1024}}
         "422":
           application/json: {}
         "401":
@@ -1172,6 +1204,22 @@ examples:
           application/json: {"detail": "<value>"}
         "500":
           application/json: {"detail": "<value>"}
+  update_partition_partitions__partition_id__patch:
+    speakeasy-default-update-partition-partitions-partition-id-patch:
+      parameters:
+        path:
+          partition_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"name": "<value>", "is_default": true, "limit_exceeded_at": "2025-06-11T12:00:00Z", "description": "yellow thread overcharge aha yowza", "context_aware": true, "metadata_schema": {"key": 723161}, "limits": {"pages_processed_limit_monthly": 1000, "pages_hosted_limit_monthly": 1000, "pages_processed_limit_max": 1000, "pages_hosted_limit_max": 1000, "video_processed_limit_monthly": 60, "video_processed_limit_max": 60, "audio_processed_limit_monthly": 60, "audio_processed_limit_max": 60, "media_streamed_limit_monthly": 1024, "media_streamed_limit_max": 1024, "media_hosted_limit_monthly": 1024, "media_hosted_limit_max": 1024}, "stats": {"pages_processed_monthly": 1000, "pages_hosted_monthly": 1000, "pages_processed_total": 1000, "pages_hosted_total": 1000, "document_count": 1000, "video_processed_monthly": 60, "video_processed_total": 60, "audio_processed_monthly": 60, "audio_processed_total": 60, "media_streamed_monthly": 1024, "media_streamed_total": 1024, "media_hosted_monthly": 1024, "media_hosted_total": 1024}}
+        "422":
+          application/json: {}
+        "401":
+          application/json: {"detail": "<value>"}
+        "500":
+          application/json: {"detail": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `ragie.responses.create()`: **Added**\n* `ragie.responses.get()`: **Added**\n* `ragie.documents.list()`:  `error.status[500]` **Added**\n* `ragie.documents.create()`:  `error.status[500]` **Added**\n* `ragie.documents.create_raw()`:  `error.status[500]` **Added**\n* `ragie.documents.create_document_from_url()`:  `error.status[500]` **Added**\n* `ragie.documents.get()`:  `error.status[500]` **Added**\n* `ragie.documents.delete()`:  `error.status[500]` **Added**\n* `ragie.documents.update_file()`:  `error.status[500]` **Added**\n* `ragie.documents.update_raw()`:  `error.status[500]` **Added**\n* `ragie.documents.update_document_from_url()`:  `error.status[500]` **Added**\n* `ragie.documents.patch_metadata()`:  `error.status[500]` **Added**\n* `ragie.documents.get_chunks()`:  `error.status[500]` **Added**\n* `ragie.documents.get_chunk()`:  `error.status[500]` **Added**\n* `ragie.documents.get_chunk_content()`:  `error.status[500]` **Added**\n* `ragie.documents.get_content()`:  `error.status[500]` **Added**\n* `ragie.documents.get_source()`:  `error.status[500]` **Added**\n* `ragie.documents.get_summary()`:  `error.status[500]` **Added**\n* `ragie.retrievals.retrieve()`:  `error.status[500]` **Added**\n* `ragie.entities.list_instructions()`:  `error.status[500]` **Added**\n* `ragie.entities.create_instruction()`:  `error.status[500]` **Added**\n* `ragie.entities.update_instruction()`:  `error.status[500]` **Added**\n* `ragie.entities.delete()`:  `error.status[500]` **Added**\n* `ragie.entities.list_by_instruction()`:  `error.status[500]` **Added**\n* `ragie.entities.list_by_document()`:  `error.status[500]` **Added**\n* `ragie.connections.create_connection()`: \n  *  `request.connection` **Changed**\n  *  `error.status[500]` **Added**\n* `ragie.connections.list()`:  `error.status[500]` **Added**\n* `ragie.connections.create_o_auth_redirect_url()`: \n  *  `request.authenticator_id` **Added**\n  *  `error.status[500]` **Added**\n* `ragie.connections.list_connection_source_types()`:  `error.status[500]` **Added**\n* `ragie.connections.set_enabled()`:  `error.status[500]` **Added**\n* `ragie.connections.get()`:  `error.status[500]` **Added**\n* `ragie.connections.update()`:  `error.status[500]` **Added**\n* `ragie.connections.get_stats()`:  `error.status[500]` **Added**\n* `ragie.connections.set_limits()`:  `error.status[500]` **Added**\n* `ragie.connections.delete()`:  `error.status[500]` **Added**\n* `ragie.connections.sync()`:  `error.status[500]` **Added**\n* `ragie.partitions.list()`:  `error.status[500]` **Added**\n* `ragie.partitions.create()`: \n  *  `request.metadata_schema` **Added**\n  *  `error.status[500]` **Added**\n* `ragie.partitions.get()`:  `error.status[500]` **Added**\n* `ragie.partitions.delete()`:  `error.status[500]` **Added**\n* `ragie.partitions.set_limits()`:  `error.status[500]` **Added**\n* `ragie.authenticators.list()`:  `error.status[500]` **Added**\n* `ragie.authenticators.create()`: \n  *  `request` **Changed**\n  *  `error.status[500]` **Added**\n* `ragie.authenticators.create_authenticator_connection()`:  `error.status[500]` **Added**\n* `ragie.authenticators.delete_authenticator_connection()`:  `error.status[500]` **Added**\n"
+releaseNotes: "## Python SDK Changes Detected:\n* `ragie.responses.create()`:  `response` **Changed** **Breaking** :warning:\n* `ragie.responses.get()`:  `response` **Changed** **Breaking** :warning:\n* `ragie.connections.create_o_auth_redirect_url()`: \n  *  `request.metadata.{}.[number]` **Added**\n* `ragie.connections.set_enabled()`:  `response.metadata.{}.[number]` **Added**\n* `ragie.documents.create_document_from_url()`: \n  *  `request.metadata.{}.[number]` **Added**\n  *  `response.metadata.{}.[number]` **Added**\n* `ragie.documents.get()`:  `response.metadata.{}.[number]` **Added**\n* `ragie.documents.patch_metadata()`:  `response.[document_metadata_update].metadata.{}.[number]` **Added**\n* `ragie.documents.get_content()`:  `response.metadata.{}.[number]` **Added**\n* `ragie.connections.create_connection()`: \n  *  `request.metadata.{}.[number]` **Added**\n  *  `response.metadata.{}.[number]` **Added**\n* `ragie.connections.list()`:  `response.connections.[].metadata.{}.[number]` **Added**\n* `ragie.partitions.update()`: **Added**\n* `ragie.documents.create_raw()`: \n  *  `request.metadata.{}.[number]` **Added**\n  *  `response.metadata.{}.[number]` **Added**\n* `ragie.connections.get()`:  `response.metadata.{}.[number]` **Added**\n* `ragie.connections.update()`: \n  *  `request.connection_base.metadata.{}.[number]` **Added**\n  *  `response.metadata.{}.[number]` **Added**\n* `ragie.connections.set_limits()`:  `response.metadata.{}.[number]` **Added**\n* `ragie.partitions.list()`:  `response.partitions.[]` **Changed**\n* `ragie.partitions.create()`: \n  *  `request.description` **Added**\n  *  `response` **Changed**\n* `ragie.partitions.get()`:  `response` **Changed**\n* `ragie.partitions.set_limits()`:  `response` **Changed**\n* `ragie.authenticators.create_authenticator_connection()`: \n  *  `request.create_authenticator_connection.metadata.{}.[number]` **Added**\n  *  `response.metadata.{}.[number]` **Added**\n* `ragie.documents.create()`:  `response.metadata.{}.[number]` **Added**\n* `ragie.documents.list()`:  `response.documents.[].metadata.{}.[number]` **Added**\n"

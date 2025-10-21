@@ -12,9 +12,14 @@ from .codeinterpreterevidence import (
 )
 from .codestep import CodeStep, CodeStepTypedDict
 from .evaluatedanswerstep import EvaluatedAnswerStep, EvaluatedAnswerStepTypedDict
+from .failedstep import FailedStep, FailedStepTypedDict
 from .planstep import PlanStep, PlanStepTypedDict
 from .ragieevidence import RagieEvidence, RagieEvidenceTypedDict
 from .searchstep import SearchStep, SearchStepTypedDict
+from .searchstepwithquerydetails import (
+    SearchStepWithQueryDetails,
+    SearchStepWithQueryDetailsTypedDict,
+)
 from .surrenderstep import SurrenderStep, SurrenderStepTypedDict
 from ragie.types import BaseModel
 from typing import List, Optional, Union
@@ -32,10 +37,12 @@ Evidence = TypeAliasType("Evidence", Union[CodeInterpreterEvidence, RagieEvidenc
 StepsTypedDict = TypeAliasType(
     "StepsTypedDict",
     Union[
+        FailedStepTypedDict,
         SearchStepTypedDict,
         PlanStepTypedDict,
         SurrenderStepTypedDict,
         AnswerStepTypedDict,
+        SearchStepWithQueryDetailsTypedDict,
         CodeStepTypedDict,
         EvaluatedAnswerStepTypedDict,
     ],
@@ -45,7 +52,14 @@ StepsTypedDict = TypeAliasType(
 Steps = TypeAliasType(
     "Steps",
     Union[
-        SearchStep, PlanStep, SurrenderStep, AnswerStep, CodeStep, EvaluatedAnswerStep
+        FailedStep,
+        SearchStep,
+        PlanStep,
+        SurrenderStep,
+        AnswerStep,
+        SearchStepWithQueryDetails,
+        CodeStep,
+        EvaluatedAnswerStep,
     ],
 )
 

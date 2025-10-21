@@ -7,18 +7,22 @@ from typing import Any, Dict, List, Union
 from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
-MetadataSchemaTypedDict = TypeAliasType(
-    "MetadataSchemaTypedDict", Union[str, int, bool, List[str], Dict[str, Any]]
+CreatePartitionParamsMetadataSchemaTypedDict = TypeAliasType(
+    "CreatePartitionParamsMetadataSchemaTypedDict",
+    Union[str, int, bool, List[str], Dict[str, Any]],
 )
 
 
-MetadataSchema = TypeAliasType(
-    "MetadataSchema", Union[str, int, bool, List[str], Dict[str, Any]]
+CreatePartitionParamsMetadataSchema = TypeAliasType(
+    "CreatePartitionParamsMetadataSchema",
+    Union[str, int, bool, List[str], Dict[str, Any]],
 )
 
 
 class CreatePartitionParamsTypedDict(TypedDict):
     name: str
+    description: NotRequired[Nullable[str]]
+    r"""Description of the partition. Automatic description generation can be enabled in the web dashboard."""
     pages_hosted_limit_monthly: NotRequired[Nullable[int]]
     r"""Monthly limit of hosted pages added in the current month in the partition."""
     pages_processed_limit_monthly: NotRequired[Nullable[int]]
@@ -43,12 +47,17 @@ class CreatePartitionParamsTypedDict(TypedDict):
     r"""Monthly limit, in MBs, for media hosted in the partition."""
     media_hosted_limit_max: NotRequired[Nullable[int]]
     r"""Maximum limit, in MBs, for media hosted in the partition."""
-    metadata_schema: NotRequired[Nullable[Dict[str, MetadataSchemaTypedDict]]]
-    r"""Metadata schema for the partition."""
+    metadata_schema: NotRequired[
+        Nullable[Dict[str, CreatePartitionParamsMetadataSchemaTypedDict]]
+    ]
+    r"""Metadata schema for the partition. This is an optional subset of the metadata of documents in the partition, defined as JSON Schema, that can be used in filter generatation. Providing detailed descriptions of the fields in the schema can be helpful for LLMs generating filters dynamically."""
 
 
 class CreatePartitionParams(BaseModel):
     name: str
+
+    description: OptionalNullable[str] = UNSET
+    r"""Description of the partition. Automatic description generation can be enabled in the web dashboard."""
 
     pages_hosted_limit_monthly: OptionalNullable[int] = UNSET
     r"""Monthly limit of hosted pages added in the current month in the partition."""
@@ -86,12 +95,15 @@ class CreatePartitionParams(BaseModel):
     media_hosted_limit_max: OptionalNullable[int] = UNSET
     r"""Maximum limit, in MBs, for media hosted in the partition."""
 
-    metadata_schema: OptionalNullable[Dict[str, MetadataSchema]] = UNSET
-    r"""Metadata schema for the partition."""
+    metadata_schema: OptionalNullable[
+        Dict[str, CreatePartitionParamsMetadataSchema]
+    ] = UNSET
+    r"""Metadata schema for the partition. This is an optional subset of the metadata of documents in the partition, defined as JSON Schema, that can be used in filter generatation. Providing detailed descriptions of the fields in the schema can be helpful for LLMs generating filters dynamically."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
+            "description",
             "pages_hosted_limit_monthly",
             "pages_processed_limit_monthly",
             "pages_hosted_limit_max",
@@ -107,6 +119,7 @@ class CreatePartitionParams(BaseModel):
             "metadata_schema",
         ]
         nullable_fields = [
+            "description",
             "pages_hosted_limit_monthly",
             "pages_processed_limit_monthly",
             "pages_hosted_limit_max",
