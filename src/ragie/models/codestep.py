@@ -15,6 +15,7 @@ class CodeStepTypedDict(TypedDict):
     code_issue: str
     r"""The natural language description of the code issue you need to solve."""
     type: Literal["code"]
+    errored: NotRequired[bool]
     code: NotRequired[str]
     r"""The code you generated to solve the code issue."""
     code_result: NotRequired[str]
@@ -33,6 +34,8 @@ class CodeStep(BaseModel):
         Annotated[Optional[Literal["code"]], AfterValidator(validate_const("code"))],
         pydantic.Field(alias="type"),
     ] = "code"
+
+    errored: Optional[bool] = False
 
     code: Optional[str] = ""
     r"""The code you generated to solve the code issue."""

@@ -1,0 +1,12 @@
+# FileSearchOutput
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `id`                                                                           | *str*                                                                          | :heavy_check_mark:                                                             | N/A                                                                            |
+| `queries`                                                                      | List[*str*]                                                                    | :heavy_check_mark:                                                             | The queries used to search for files.                                          |
+| `status`                                                                       | [Optional[models.FileSearchOutputStatus]](../models/filesearchoutputstatus.md) | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `type`                                                                         | *Literal["file_search_call"]*                                                  | :heavy_check_mark:                                                             | N/A                                                                            |
+| `results`                                                                      | List[[models.FileSearchResult](../models/filesearchresult.md)]                 | :heavy_check_mark:                                                             | The results of the file search tool call.                                      |

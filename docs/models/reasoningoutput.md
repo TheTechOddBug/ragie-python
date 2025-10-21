@@ -1,0 +1,13 @@
+# ReasoningOutput
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `id`                                                                         | *str*                                                                        | :heavy_check_mark:                                                           | The unique ID of the reasoning output.                                       |
+| `summary`                                                                    | List[[models.ReasoningSummary](../models/reasoningsummary.md)]               | :heavy_check_mark:                                                           | The summary of the reasoning.                                                |
+| `type`                                                                       | *Optional[Literal["reasoning"]]*                                             | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `content`                                                                    | List[[models.ReasoningText](../models/reasoningtext.md)]                     | :heavy_check_mark:                                                           | The content of the reasoning.                                                |
+| `encrypted_content`                                                          | *str*                                                                        | :heavy_check_mark:                                                           | The encrypted content of the reasoning output.                               |
+| `status`                                                                     | [Optional[models.ReasoningOutputStatus]](../models/reasoningoutputstatus.md) | :heavy_minus_sign:                                                           | N/A                                                                          |

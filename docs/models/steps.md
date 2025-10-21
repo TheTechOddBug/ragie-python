@@ -15,6 +15,12 @@ value: models.AnswerStep = /* values here */
 value: models.SearchStep = /* values here */
 ```
 
+### `models.SearchStepWithQueryDetails`
+
+```python
+value: models.SearchStepWithQueryDetails = /* values here */
+```
+
 ### `models.PlanStep`
 
 ```python
@@ -37,5 +43,11 @@ value: models.SurrenderStep = /* values here */
 
 ```python
 value: models.EvaluatedAnswerStep = /* values here */
+```
+
+### `models.FailedStep`
+
+```python
+value: models.FailedStep = /* values here */
 ```
 

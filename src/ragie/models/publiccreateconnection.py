@@ -31,12 +31,12 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
 PublicCreateConnectionMetadataTypedDict = TypeAliasType(
-    "PublicCreateConnectionMetadataTypedDict", Union[str, int, bool, List[str]]
+    "PublicCreateConnectionMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 PublicCreateConnectionMetadata = TypeAliasType(
-    "PublicCreateConnectionMetadata", Union[str, int, bool, List[str]]
+    "PublicCreateConnectionMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

@@ -435,9 +435,9 @@ asyncio.run(main())
 * [list](docs/sdks/partitions/README.md#list) - List Partitions
 * [create](docs/sdks/partitions/README.md#create) - Create Partition
 * [get](docs/sdks/partitions/README.md#get) - Get Partition
+* [update](docs/sdks/partitions/README.md#update) - Update Partition
 * [delete](docs/sdks/partitions/README.md#delete) - Delete Partition
 * [set_limits](docs/sdks/partitions/README.md#set_limits) - Set Partition Limits
-
 
 ### [responses](docs/sdks/responses/README.md)
 

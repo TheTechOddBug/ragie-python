@@ -17,6 +17,7 @@ class EvaluatedAnswerStepTypedDict(TypedDict):
     eval_passed: bool
     eval_reason: str
     type: Literal["evaluated_answer"]
+    errored: NotRequired[bool]
     other_resolved_question_ids: NotRequired[List[str]]
     r"""A list of questions ids that are no longer relevant to the current answer referenced by their IDs."""
 
@@ -39,6 +40,8 @@ class EvaluatedAnswerStep(BaseModel):
         ],
         pydantic.Field(alias="type"),
     ] = "evaluated_answer"
+
+    errored: Optional[bool] = False
 
     other_resolved_question_ids: Optional[List[str]] = None
     r"""A list of questions ids that are no longer relevant to the current answer referenced by their IDs."""

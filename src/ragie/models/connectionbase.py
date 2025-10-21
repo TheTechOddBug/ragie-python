@@ -25,12 +25,12 @@ PartitionStrategy = TypeAliasType(
 
 
 ConnectionBaseMetadataTypedDict = TypeAliasType(
-    "ConnectionBaseMetadataTypedDict", Union[str, int, bool, List[str]]
+    "ConnectionBaseMetadataTypedDict", Union[str, int, float, bool, List[str]]
 )
 
 
 ConnectionBaseMetadata = TypeAliasType(
-    "ConnectionBaseMetadata", Union[str, int, bool, List[str]]
+    "ConnectionBaseMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

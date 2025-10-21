@@ -10,12 +10,13 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 CreateDocumentFromURLParamsMetadataTypedDict = TypeAliasType(
-    "CreateDocumentFromURLParamsMetadataTypedDict", Union[str, int, bool, List[str]]
+    "CreateDocumentFromURLParamsMetadataTypedDict",
+    Union[str, int, float, bool, List[str]],
 )
 
 
 CreateDocumentFromURLParamsMetadata = TypeAliasType(
-    "CreateDocumentFromURLParamsMetadata", Union[str, int, bool, List[str]]
+    "CreateDocumentFromURLParamsMetadata", Union[str, int, float, bool, List[str]]
 )
 
 

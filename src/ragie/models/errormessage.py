@@ -12,7 +12,7 @@ class ErrorMessageData(BaseModel):
     detail: str
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ErrorMessage(RagieError):
     data: ErrorMessageData = field(hash=False)
 

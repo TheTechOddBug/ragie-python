@@ -80,6 +80,15 @@ if TYPE_CHECKING:
         CodeInterpreterEvidence,
         CodeInterpreterEvidenceTypedDict,
     )
+    from .codeinterpreteroutput import (
+        CodeInterpreterOutput,
+        CodeInterpreterOutputStatus,
+        CodeInterpreterOutputTypedDict,
+    )
+    from .codeinterpreteroutputlogs import (
+        CodeInterpreterOutputLogs,
+        CodeInterpreterOutputLogsTypedDict,
+    )
     from .codestep import CodeStep, CodeStepTypedDict
     from .confluencedata import ConfluenceData, ConfluenceDataTypedDict
     from .connection import (
@@ -174,9 +183,9 @@ if TYPE_CHECKING:
     )
     from .createpartitionparams import (
         CreatePartitionParams,
+        CreatePartitionParamsMetadataSchema,
+        CreatePartitionParamsMetadataSchemaTypedDict,
         CreatePartitionParamsTypedDict,
-        MetadataSchema,
-        MetadataSchemaTypedDict,
     )
     from .delete_connection_connections_connection_id_delete_postop import (
         DeleteConnectionConnectionsConnectionIDDeletePostRequest,
@@ -241,6 +250,13 @@ if TYPE_CHECKING:
     from .entitylist import EntityList, EntityListTypedDict
     from .errormessage import ErrorMessage, ErrorMessageData
     from .evaluatedanswerstep import EvaluatedAnswerStep, EvaluatedAnswerStepTypedDict
+    from .failedstep import FailedStep, FailedStepTypedDict
+    from .filesearchoutput import (
+        FileSearchOutput,
+        FileSearchOutputStatus,
+        FileSearchOutputTypedDict,
+    )
+    from .filesearchresult import FileSearchResult, FileSearchResultTypedDict
     from .finalanswer import (
         Evidence,
         EvidenceTypedDict,
@@ -371,8 +387,18 @@ if TYPE_CHECKING:
     from .onedrivedata import OnedriveData, OnedriveDataTypedDict
     from .outputtokendetails import OutputTokenDetails, OutputTokenDetailsTypedDict
     from .pagination import Pagination, PaginationTypedDict
-    from .partition import Partition, PartitionTypedDict
-    from .partitiondetail import PartitionDetail, PartitionDetailTypedDict
+    from .partition import (
+        MetadataSchema,
+        MetadataSchemaTypedDict,
+        Partition,
+        PartitionTypedDict,
+    )
+    from .partitiondetail import (
+        PartitionDetail,
+        PartitionDetailMetadataSchema,
+        PartitionDetailMetadataSchemaTypedDict,
+        PartitionDetailTypedDict,
+    )
     from .partitionlimitparams import (
         PartitionLimitParams,
         PartitionLimitParamsTypedDict,
@@ -420,17 +446,28 @@ if TYPE_CHECKING:
         PublicZendeskConnection,
         PublicZendeskConnectionTypedDict,
     )
+    from .querydetails import QueryDetails, QueryDetailsTypedDict
     from .ragie_api_schema_response_usage import (
         RagieAPISchemaResponseUsage,
         RagieAPISchemaResponseUsageTypedDict,
     )
     from .ragieevidence import RagieEvidence, RagieEvidenceTypedDict
     from .reasoning import Effort, Reasoning, ReasoningTypedDict
+    from .reasoningoutput import (
+        ReasoningOutput,
+        ReasoningOutputStatus,
+        ReasoningOutputTypedDict,
+    )
+    from .reasoningsummary import ReasoningSummary, ReasoningSummaryTypedDict
+    from .reasoningtext import ReasoningText, ReasoningTextTypedDict
     from .request import Request, RequestTypedDict
-    from .response import Response, ResponseTypedDict, Status
+    from .response import Output, OutputTypedDict, Response, ResponseTypedDict, Status
     from .responsecontent import ResponseContent, ResponseContentTypedDict
     from .responseok import ResponseOK, ResponseOKTypedDict
-    from .responseoutput import ResponseOutput, ResponseOutputTypedDict
+    from .responseoutputmessage import (
+        ResponseOutputMessage,
+        ResponseOutputMessageTypedDict,
+    )
     from .responsevalidationerror import ResponseValidationError
     from .retrieval import Retrieval, RetrievalTypedDict
     from .retrieveparams import RetrieveParams, RetrieveParamsTypedDict
@@ -441,8 +478,13 @@ if TYPE_CHECKING:
     from .scoredchunk import ScoredChunk, ScoredChunkTypedDict
     from .sdkerror import SDKError
     from .search import Search, SearchTypedDict
+    from .searcheffort import SearchEffort
     from .searchresultlink import SearchResultLink, SearchResultLinkTypedDict
     from .searchstep import SearchStep, SearchStepTypedDict
+    from .searchstepwithquerydetails import (
+        SearchStepWithQueryDetails,
+        SearchStepWithQueryDetailsTypedDict,
+    )
     from .security import Security, SecurityTypedDict
     from .set_connection_enabled_connections_connection_id_enabled_putop import (
         SetConnectionEnabledConnectionsConnectionIDEnabledPutRequest,
@@ -475,6 +517,10 @@ if TYPE_CHECKING:
     from .update_connection_connections_connection_id_putop import (
         UpdateConnectionConnectionsConnectionIDPutRequest,
         UpdateConnectionConnectionsConnectionIDPutRequestTypedDict,
+    )
+    from .update_partition_partitions_partition_id_patchop import (
+        UpdatePartitionPartitionsPartitionIDPatchRequest,
+        UpdatePartitionPartitionsPartitionIDPatchRequestTypedDict,
     )
     from .updatedocumentfileop import (
         UpdateDocumentFileRequest,
@@ -525,6 +571,12 @@ if TYPE_CHECKING:
     from .updateinstructionparams import (
         UpdateInstructionParams,
         UpdateInstructionParamsTypedDict,
+    )
+    from .updatepartitionparams import (
+        UpdatePartitionParams,
+        UpdatePartitionParamsMetadataSchema,
+        UpdatePartitionParamsMetadataSchemaTypedDict,
+        UpdatePartitionParamsTypedDict,
     )
     from .validationerror import (
         Loc,
@@ -582,6 +634,11 @@ __all__ = [
     "BucketDataTypedDict",
     "CodeInterpreterEvidence",
     "CodeInterpreterEvidenceTypedDict",
+    "CodeInterpreterOutput",
+    "CodeInterpreterOutputLogs",
+    "CodeInterpreterOutputLogsTypedDict",
+    "CodeInterpreterOutputStatus",
+    "CodeInterpreterOutputTypedDict",
     "CodeStep",
     "CodeStepTypedDict",
     "ConfluenceData",
@@ -631,6 +688,8 @@ __all__ = [
     "CreateInstructionParamsScope",
     "CreateInstructionParamsTypedDict",
     "CreatePartitionParams",
+    "CreatePartitionParamsMetadataSchema",
+    "CreatePartitionParamsMetadataSchemaTypedDict",
     "CreatePartitionParamsTypedDict",
     "Data",
     "DataTypedDict",
@@ -692,7 +751,14 @@ __all__ = [
     "EvaluatedAnswerStepTypedDict",
     "Evidence",
     "EvidenceTypedDict",
+    "FailedStep",
+    "FailedStepTypedDict",
     "File",
+    "FileSearchOutput",
+    "FileSearchOutputStatus",
+    "FileSearchOutputTypedDict",
+    "FileSearchResult",
+    "FileSearchResultTypedDict",
     "FileTypedDict",
     "FinalAnswer",
     "FinalAnswerTypedDict",
@@ -809,12 +875,16 @@ __all__ = [
     "OneTypedDict",
     "OnedriveData",
     "OnedriveDataTypedDict",
+    "Output",
     "OutputTokenDetails",
     "OutputTokenDetailsTypedDict",
+    "OutputTypedDict",
     "Pagination",
     "PaginationTypedDict",
     "Partition",
     "PartitionDetail",
+    "PartitionDetailMetadataSchema",
+    "PartitionDetailMetadataSchemaTypedDict",
     "PartitionDetailTypedDict",
     "PartitionLimitParams",
     "PartitionLimitParamsTypedDict",
@@ -855,6 +925,8 @@ __all__ = [
     "PublicS3CompatibleConnectionTypedDict",
     "PublicZendeskConnection",
     "PublicZendeskConnectionTypedDict",
+    "QueryDetails",
+    "QueryDetailsTypedDict",
     "QueryParam1",
     "QueryParamMediaType",
     "QueryParamMediaTypeTypedDict",
@@ -865,6 +937,13 @@ __all__ = [
     "RagieEvidenceTypedDict",
     "Reason",
     "Reasoning",
+    "ReasoningOutput",
+    "ReasoningOutputStatus",
+    "ReasoningOutputTypedDict",
+    "ReasoningSummary",
+    "ReasoningSummaryTypedDict",
+    "ReasoningText",
+    "ReasoningTextTypedDict",
     "ReasoningTypedDict",
     "Request",
     "RequestTypedDict",
@@ -873,8 +952,8 @@ __all__ = [
     "ResponseContentTypedDict",
     "ResponseOK",
     "ResponseOKTypedDict",
-    "ResponseOutput",
-    "ResponseOutputTypedDict",
+    "ResponseOutputMessage",
+    "ResponseOutputMessageTypedDict",
     "ResponseTypedDict",
     "ResponseValidationError",
     "Retrieval",
@@ -888,10 +967,13 @@ __all__ = [
     "ScoredChunk",
     "ScoredChunkTypedDict",
     "Search",
+    "SearchEffort",
     "SearchResultLink",
     "SearchResultLinkTypedDict",
     "SearchStep",
     "SearchStepTypedDict",
+    "SearchStepWithQueryDetails",
+    "SearchStepWithQueryDetailsTypedDict",
     "SearchTypedDict",
     "Security",
     "SecurityTypedDict",
@@ -961,6 +1043,12 @@ __all__ = [
     "UpdateInstructionParamsTypedDict",
     "UpdateInstructionRequest",
     "UpdateInstructionRequestTypedDict",
+    "UpdatePartitionParams",
+    "UpdatePartitionParamsMetadataSchema",
+    "UpdatePartitionParamsMetadataSchemaTypedDict",
+    "UpdatePartitionParamsTypedDict",
+    "UpdatePartitionPartitionsPartitionIDPatchRequest",
+    "UpdatePartitionPartitionsPartitionIDPatchRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
     "Video",
@@ -1019,6 +1107,11 @@ _dynamic_imports: dict[str, str] = {
     "BucketDataTypedDict": ".bucketdata",
     "CodeInterpreterEvidence": ".codeinterpreterevidence",
     "CodeInterpreterEvidenceTypedDict": ".codeinterpreterevidence",
+    "CodeInterpreterOutput": ".codeinterpreteroutput",
+    "CodeInterpreterOutputStatus": ".codeinterpreteroutput",
+    "CodeInterpreterOutputTypedDict": ".codeinterpreteroutput",
+    "CodeInterpreterOutputLogs": ".codeinterpreteroutputlogs",
+    "CodeInterpreterOutputLogsTypedDict": ".codeinterpreteroutputlogs",
     "CodeStep": ".codestep",
     "CodeStepTypedDict": ".codestep",
     "ConfluenceData": ".confluencedata",
@@ -1092,9 +1185,9 @@ _dynamic_imports: dict[str, str] = {
     "CreateInstructionParamsScope": ".createinstructionparams",
     "CreateInstructionParamsTypedDict": ".createinstructionparams",
     "CreatePartitionParams": ".createpartitionparams",
+    "CreatePartitionParamsMetadataSchema": ".createpartitionparams",
+    "CreatePartitionParamsMetadataSchemaTypedDict": ".createpartitionparams",
     "CreatePartitionParamsTypedDict": ".createpartitionparams",
-    "MetadataSchema": ".createpartitionparams",
-    "MetadataSchemaTypedDict": ".createpartitionparams",
     "DeleteConnectionConnectionsConnectionIDDeletePostRequest": ".delete_connection_connections_connection_id_delete_postop",
     "DeleteConnectionConnectionsConnectionIDDeletePostRequestTypedDict": ".delete_connection_connections_connection_id_delete_postop",
     "DeletePartitionPartitionsPartitionIDDeleteRequest": ".delete_partition_partitions_partition_id_deleteop",
@@ -1151,6 +1244,13 @@ _dynamic_imports: dict[str, str] = {
     "ErrorMessageData": ".errormessage",
     "EvaluatedAnswerStep": ".evaluatedanswerstep",
     "EvaluatedAnswerStepTypedDict": ".evaluatedanswerstep",
+    "FailedStep": ".failedstep",
+    "FailedStepTypedDict": ".failedstep",
+    "FileSearchOutput": ".filesearchoutput",
+    "FileSearchOutputStatus": ".filesearchoutput",
+    "FileSearchOutputTypedDict": ".filesearchoutput",
+    "FileSearchResult": ".filesearchresult",
+    "FileSearchResultTypedDict": ".filesearchresult",
     "Evidence": ".finalanswer",
     "EvidenceTypedDict": ".finalanswer",
     "FinalAnswer": ".finalanswer",
@@ -1262,9 +1362,13 @@ _dynamic_imports: dict[str, str] = {
     "OutputTokenDetailsTypedDict": ".outputtokendetails",
     "Pagination": ".pagination",
     "PaginationTypedDict": ".pagination",
+    "MetadataSchema": ".partition",
+    "MetadataSchemaTypedDict": ".partition",
     "Partition": ".partition",
     "PartitionTypedDict": ".partition",
     "PartitionDetail": ".partitiondetail",
+    "PartitionDetailMetadataSchema": ".partitiondetail",
+    "PartitionDetailMetadataSchemaTypedDict": ".partitiondetail",
     "PartitionDetailTypedDict": ".partitiondetail",
     "PartitionLimitParams": ".partitionlimitparams",
     "PartitionLimitParamsTypedDict": ".partitionlimitparams",
@@ -1300,6 +1404,8 @@ _dynamic_imports: dict[str, str] = {
     "PublicS3CompatibleConnectionTypedDict": ".publics3compatibleconnection",
     "PublicZendeskConnection": ".publiczendeskconnection",
     "PublicZendeskConnectionTypedDict": ".publiczendeskconnection",
+    "QueryDetails": ".querydetails",
+    "QueryDetailsTypedDict": ".querydetails",
     "RagieAPISchemaResponseUsage": ".ragie_api_schema_response_usage",
     "RagieAPISchemaResponseUsageTypedDict": ".ragie_api_schema_response_usage",
     "RagieEvidence": ".ragieevidence",
@@ -1307,8 +1413,17 @@ _dynamic_imports: dict[str, str] = {
     "Effort": ".reasoning",
     "Reasoning": ".reasoning",
     "ReasoningTypedDict": ".reasoning",
+    "ReasoningOutput": ".reasoningoutput",
+    "ReasoningOutputStatus": ".reasoningoutput",
+    "ReasoningOutputTypedDict": ".reasoningoutput",
+    "ReasoningSummary": ".reasoningsummary",
+    "ReasoningSummaryTypedDict": ".reasoningsummary",
+    "ReasoningText": ".reasoningtext",
+    "ReasoningTextTypedDict": ".reasoningtext",
     "Request": ".request",
     "RequestTypedDict": ".request",
+    "Output": ".response",
+    "OutputTypedDict": ".response",
     "Response": ".response",
     "ResponseTypedDict": ".response",
     "Status": ".response",
@@ -1316,8 +1431,8 @@ _dynamic_imports: dict[str, str] = {
     "ResponseContentTypedDict": ".responsecontent",
     "ResponseOK": ".responseok",
     "ResponseOKTypedDict": ".responseok",
-    "ResponseOutput": ".responseoutput",
-    "ResponseOutputTypedDict": ".responseoutput",
+    "ResponseOutputMessage": ".responseoutputmessage",
+    "ResponseOutputMessageTypedDict": ".responseoutputmessage",
     "ResponseValidationError": ".responsevalidationerror",
     "Retrieval": ".retrieval",
     "RetrievalTypedDict": ".retrieval",
@@ -1330,10 +1445,13 @@ _dynamic_imports: dict[str, str] = {
     "SDKError": ".sdkerror",
     "Search": ".search",
     "SearchTypedDict": ".search",
+    "SearchEffort": ".searcheffort",
     "SearchResultLink": ".searchresultlink",
     "SearchResultLinkTypedDict": ".searchresultlink",
     "SearchStep": ".searchstep",
     "SearchStepTypedDict": ".searchstep",
+    "SearchStepWithQueryDetails": ".searchstepwithquerydetails",
+    "SearchStepWithQueryDetailsTypedDict": ".searchstepwithquerydetails",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "SetConnectionEnabledConnectionsConnectionIDEnabledPutRequest": ".set_connection_enabled_connections_connection_id_enabled_putop",
@@ -1362,6 +1480,8 @@ _dynamic_imports: dict[str, str] = {
     "ToolTypedDict": ".tool",
     "UpdateConnectionConnectionsConnectionIDPutRequest": ".update_connection_connections_connection_id_putop",
     "UpdateConnectionConnectionsConnectionIDPutRequestTypedDict": ".update_connection_connections_connection_id_putop",
+    "UpdatePartitionPartitionsPartitionIDPatchRequest": ".update_partition_partitions_partition_id_patchop",
+    "UpdatePartitionPartitionsPartitionIDPatchRequestTypedDict": ".update_partition_partitions_partition_id_patchop",
     "UpdateDocumentFileRequest": ".updatedocumentfileop",
     "UpdateDocumentFileRequestTypedDict": ".updatedocumentfileop",
     "Mode2": ".updatedocumentfileparams",
@@ -1396,6 +1516,10 @@ _dynamic_imports: dict[str, str] = {
     "UpdateInstructionRequestTypedDict": ".updateinstructionop",
     "UpdateInstructionParams": ".updateinstructionparams",
     "UpdateInstructionParamsTypedDict": ".updateinstructionparams",
+    "UpdatePartitionParams": ".updatepartitionparams",
+    "UpdatePartitionParamsMetadataSchema": ".updatepartitionparams",
+    "UpdatePartitionParamsMetadataSchemaTypedDict": ".updatepartitionparams",
+    "UpdatePartitionParamsTypedDict": ".updatepartitionparams",
     "Loc": ".validationerror",
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
