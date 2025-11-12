@@ -249,3 +249,13 @@ Based on:
 - [python v1.13.0] .
 ### Releases
 - [PyPI v1.13.0] https://pypi.org/project/ragie/1.13.0 - .
+
+## 2025-11-12 18:41:52
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.655.0 (2.751.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v1.14.0] .
+### Releases
+- [PyPI v1.14.0] https://pypi.org/project/ragie/1.14.0 - .

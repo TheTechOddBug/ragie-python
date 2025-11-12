@@ -1,10 +1,17 @@
 # Mode2
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `static`                                                                                                       | [OptionalNullable[models.UpdateDocumentFileParamsModeStatic]](../models/updatedocumentfileparamsmodestatic.md) | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
-| `audio`                                                                                                        | *OptionalNullable[bool]*                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
-| `video`                                                                                                        | [OptionalNullable[models.UpdateDocumentFileParamsModeVideo]](../models/updatedocumentfileparamsmodevideo.md)   | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+### `models.UpdateDocumentFileParams21`
+
+```python
+value: models.UpdateDocumentFileParams21 = /* values here */
+```
+
+### `models.UpdateDocumentFileParams22`
+
+```python
+value: models.UpdateDocumentFileParams22 = /* values here */
+```
+

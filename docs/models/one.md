@@ -1,17 +1,10 @@
 # One
 
 
-## Supported Types
+## Fields
 
-### `models.One1`
-
-```python
-value: models.One1 = /* values here */
-```
-
-### `models.One2`
-
-```python
-value: models.One2 = /* values here */
-```
-
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `static`                                                       | [OptionalNullable[models.ModeStatic]](../models/modestatic.md) | :heavy_minus_sign:                                             | N/A                                                            |
+| `audio`                                                        | *OptionalNullable[bool]*                                       | :heavy_minus_sign:                                             | N/A                                                            |
+| `video`                                                        | [OptionalNullable[models.ModeVideo]](../models/modevideo.md)   | :heavy_minus_sign:                                             | N/A                                                            |
