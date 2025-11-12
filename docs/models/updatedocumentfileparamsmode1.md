@@ -1,17 +1,10 @@
 # UpdateDocumentFileParamsMode1
 
 
-## Supported Types
+## Fields
 
-### `models.UpdateDocumentFileParams11`
-
-```python
-value: models.UpdateDocumentFileParams11 = /* values here */
-```
-
-### `models.UpdateDocumentFileParams12`
-
-```python
-value: models.UpdateDocumentFileParams12 = /* values here */
-```
-
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `static`                                                                                                       | [OptionalNullable[models.UpdateDocumentFileParamsModeStatic]](../models/updatedocumentfileparamsmodestatic.md) | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `audio`                                                                                                        | *OptionalNullable[bool]*                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `video`                                                                                                        | [OptionalNullable[models.UpdateDocumentFileParamsModeVideo]](../models/updatedocumentfileparamsmodevideo.md)   | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

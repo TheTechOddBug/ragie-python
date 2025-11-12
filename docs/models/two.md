@@ -1,10 +1,17 @@
 # Two
 
 
-## Fields
+## Supported Types
 
-| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `static`                                                       | [OptionalNullable[models.ModeStatic]](../models/modestatic.md) | :heavy_minus_sign:                                             | N/A                                                            |
-| `audio`                                                        | *OptionalNullable[bool]*                                       | :heavy_minus_sign:                                             | N/A                                                            |
-| `video`                                                        | [OptionalNullable[models.ModeVideo]](../models/modevideo.md)   | :heavy_minus_sign:                                             | N/A                                                            |
+### `models.Two1`
+
+```python
+value: models.Two1 = /* values here */
+```
+
+### `models.Two2`
+
+```python
+value: models.Two2 = /* values here */
+```
+

@@ -11,6 +11,25 @@ from typing import Dict, IO, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
+class Two2TypedDict(TypedDict):
+    pass
+
+
+class Two2(BaseModel):
+    pass
+
+
+class Two1(str, Enum):
+    HI_RES = "hi_res"
+    FAST = "fast"
+
+
+TwoTypedDict = TypeAliasType("TwoTypedDict", Union[Two2TypedDict, Two1])
+
+
+Two = TypeAliasType("Two", Union[Two2, Two1])
+
+
 class ModeStatic(str, Enum):
     HI_RES = "hi_res"
     FAST = "fast"
@@ -22,13 +41,13 @@ class ModeVideo(str, Enum):
     AUDIO_VIDEO = "audio_video"
 
 
-class TwoTypedDict(TypedDict):
+class OneTypedDict(TypedDict):
     static: NotRequired[Nullable[ModeStatic]]
     audio: NotRequired[Nullable[bool]]
     video: NotRequired[Nullable[ModeVideo]]
 
 
-class Two(BaseModel):
+class One(BaseModel):
     static: OptionalNullable[ModeStatic] = UNSET
 
     audio: OptionalNullable[bool] = UNSET
@@ -66,30 +85,11 @@ class Two(BaseModel):
         return m
 
 
-class One2TypedDict(TypedDict):
-    pass
-
-
-class One2(BaseModel):
-    pass
-
-
-class One1(str, Enum):
-    HI_RES = "hi_res"
-    FAST = "fast"
-
-
-OneTypedDict = TypeAliasType("OneTypedDict", Union[One2TypedDict, One1])
-
-
-One = TypeAliasType("One", Union[One2, One1])
-
-
-ModeTypedDict = TypeAliasType("ModeTypedDict", Union[TwoTypedDict, OneTypedDict])
+ModeTypedDict = TypeAliasType("ModeTypedDict", Union[OneTypedDict, TwoTypedDict])
 r"""Partition strategy for the document. Different strategies exist for textual, audio and video file types and you can set the strategy you want for  each file type, or just for textual types.  For textual documents the options are `'hi_res'` or `'fast'`. When set to `'hi_res'`, images and tables will be extracted from the document. `'fast'` will only extract text. `'fast'` may be up to 20x faster than `'hi_res'`. `hi_res` is only applicable for Word documents, PDFs, Images, and PowerPoints. Images will always be processed in `hi_res`. If `hi_res` is set for an unsupported document type, it will be processed and billed in `fast` mode.  For audio files, the options are true or false. True if you want to process audio, false otherwise.          For video files, the options are `'audio_only'`, `'video_only'`, `'audio_video'`. `'audio_only'` will extract just the audio part of the video. `'video_only'` will similarly just extract the video part, ignoring audio. `'audio_video'` will extract both audio and video.  To process all media types at the highest quality, use `'all'`.  When you specify audio or video stategies, the format must be a JSON object. In this case, textual documents are denoted by the key \"static\". If you omit a key, that document type won't be processd.  See examples below.  Examples  Textual documents only     \"fast\"  Video documents only {     \"video\": \"audio_video\" }  Specify multiple document types {     \"static\": \"hi_res\",     \"audio\": true,     \"video\": \"video_only\" }  Specify only textual or audio document types {     \"static\": \"fast\",     \"audio\": true }  Highest quality processing for all media types     \"all\" """
 
 
-Mode = TypeAliasType("Mode", Union[Two, One])
+Mode = TypeAliasType("Mode", Union[One, Two])
 r"""Partition strategy for the document. Different strategies exist for textual, audio and video file types and you can set the strategy you want for  each file type, or just for textual types.  For textual documents the options are `'hi_res'` or `'fast'`. When set to `'hi_res'`, images and tables will be extracted from the document. `'fast'` will only extract text. `'fast'` may be up to 20x faster than `'hi_res'`. `hi_res` is only applicable for Word documents, PDFs, Images, and PowerPoints. Images will always be processed in `hi_res`. If `hi_res` is set for an unsupported document type, it will be processed and billed in `fast` mode.  For audio files, the options are true or false. True if you want to process audio, false otherwise.          For video files, the options are `'audio_only'`, `'video_only'`, `'audio_video'`. `'audio_only'` will extract just the audio part of the video. `'video_only'` will similarly just extract the video part, ignoring audio. `'audio_video'` will extract both audio and video.  To process all media types at the highest quality, use `'all'`.  When you specify audio or video stategies, the format must be a JSON object. In this case, textual documents are denoted by the key \"static\". If you omit a key, that document type won't be processd.  See examples below.  Examples  Textual documents only     \"fast\"  Video documents only {     \"video\": \"audio_video\" }  Specify multiple document types {     \"static\": \"hi_res\",     \"audio\": true,     \"video\": \"video_only\" }  Specify only textual or audio document types {     \"static\": \"fast\",     \"audio\": true }  Highest quality processing for all media types     \"all\" """
 
 
