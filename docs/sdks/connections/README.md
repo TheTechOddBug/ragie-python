@@ -49,8 +49,6 @@ with Ragie(
         ),
     ))
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -143,8 +141,6 @@ with Ragie(
         "page_limit": 1000,
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -187,8 +183,6 @@ with Ragie(
 
     res = r_client.connections.list_connection_source_types()
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -230,8 +224,6 @@ with Ragie(
     res = r_client.connections.set_enabled(connection_id="e424ce92-7b06-4702-9d48-a18157d07128", set_connection_enabled_payload={
         "enabled": True,
     })
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -279,8 +271,6 @@ with Ragie(
         "page_limit": 1000,
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -324,8 +314,6 @@ with Ragie(
 
     res = r_client.connections.get(connection_id="af154d9d-a1af-4619-964d-b1589f2ec4f8")
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -367,8 +355,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.connections.get_stats(connection_id="1568dd0e-2d57-45b1-a9f4-9d646aec54a2")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -413,8 +399,6 @@ with Ragie(
     res = r_client.connections.set_limits(connection_id="ab1a17e7-8b6f-470a-aeda-1c8e11512d19", connection_limit_params={
         "page_limit": 1000,
     })
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -461,8 +445,6 @@ with Ragie(
         "keep_files": True,
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -505,8 +487,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.connections.sync(connection_id="cf2b9381-3cee-4449-b7d1-9eb470186924")
-
-    assert res is not None
 
     # Handle response
     print(res)

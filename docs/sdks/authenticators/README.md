@@ -33,8 +33,6 @@ with Ragie(
         "client_secret": "<value>",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -136,8 +134,6 @@ with Ragie(
         ),
     ))
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -180,8 +176,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.authenticators.delete_authenticator_connection(authenticator_id="6737a874-c5c2-4d13-8234-8119b200a2b0")
-
-    assert res is not None
 
     # Handle response
     print(res)

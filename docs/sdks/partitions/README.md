@@ -88,8 +88,6 @@ with Ragie(
         "media_hosted_limit_max": 1024,
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -131,8 +129,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.partitions.get(partition_id="<id>")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -176,8 +172,6 @@ with Ragie(
 
     res = r_client.partitions.update(partition_id="<id>", update_partition_params={})
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -219,9 +213,7 @@ with Ragie(
     auth="<YOUR_BEARER_TOKEN_HERE>",
 ) as r_client:
 
-    res = r_client.partitions.delete(partition_id="<id>")
-
-    assert res is not None
+    res = r_client.partitions.delete(partition_id="<id>", async_=True)
 
     # Handle response
     print(res)
@@ -230,14 +222,15 @@ with Ragie(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `partition_id`                                                      | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `partition_id`                                                      | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `async_`                                                            | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | If true, performs partition deletion asynchronously.                | true                                                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 
-**[Dict[str, str]](../../models/.md)**
+**[models.ResponseOK](../../models/responseok.md)**
 
 ### Errors
 
@@ -277,8 +270,6 @@ with Ragie(
         "media_hosted_limit_monthly": 1024,
         "media_hosted_limit_max": 1024,
     })
-
-    assert res is not None
 
     # Handle response
     print(res)

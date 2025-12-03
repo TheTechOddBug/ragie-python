@@ -28,7 +28,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.14.0
+  version: 1.15.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -57,11 +57,14 @@ python:
       operations: ""
       shared: ""
       webhooks: ""
+  inferUnionDiscriminators: true
   inputModelSuffix: input
   legacyPyright: true
+  license: ""
   maxMethodParams: 4
   methodArguments: infer-optional-args
   moduleName: ""
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageManager: poetry
   packageName: ragie

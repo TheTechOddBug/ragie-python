@@ -29,8 +29,6 @@ with Ragie(
         "partition": "<value>",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 

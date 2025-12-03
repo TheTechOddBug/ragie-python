@@ -21,7 +21,7 @@ class Authenticators(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.BaseGetAuthenticator]:
+    ) -> models.BaseGetAuthenticator:
         r"""Create Authenticator
 
         Create White labeled connector credentials
@@ -62,6 +62,7 @@ class Authenticators(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateAuthenticatorPayload
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -88,9 +89,7 @@ class Authenticators(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.BaseGetAuthenticator], http_res
-            )
+            return unmarshal_json_response(models.BaseGetAuthenticator, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -124,7 +123,7 @@ class Authenticators(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.BaseGetAuthenticator]:
+    ) -> models.BaseGetAuthenticator:
         r"""Create Authenticator
 
         Create White labeled connector credentials
@@ -165,6 +164,7 @@ class Authenticators(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateAuthenticatorPayload
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -191,9 +191,7 @@ class Authenticators(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.BaseGetAuthenticator], http_res
-            )
+            return unmarshal_json_response(models.BaseGetAuthenticator, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -264,6 +262,7 @@ class Authenticators(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -310,9 +309,7 @@ class Authenticators(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListAuthenticatorsResponse(
-                result=unmarshal_json_response(
-                    Optional[models.AuthenticatorList], http_res
-                ),
+                result=unmarshal_json_response(models.AuthenticatorList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -385,6 +382,7 @@ class Authenticators(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -431,9 +429,7 @@ class Authenticators(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListAuthenticatorsResponse(
-                result=unmarshal_json_response(
-                    Optional[models.AuthenticatorList], http_res
-                ),
+                result=unmarshal_json_response(models.AuthenticatorList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -470,7 +466,7 @@ class Authenticators(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Create Authenticator Connection
 
         Create a connector for a given authenticator. This requires credentials dependent on the provider. For google drive it is a refresh token.
@@ -519,6 +515,7 @@ class Authenticators(BaseSDK):
                 "json",
                 models.CreateAuthenticatorConnection,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -545,7 +542,7 @@ class Authenticators(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -580,7 +577,7 @@ class Authenticators(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Create Authenticator Connection
 
         Create a connector for a given authenticator. This requires credentials dependent on the provider. For google drive it is a refresh token.
@@ -629,6 +626,7 @@ class Authenticators(BaseSDK):
                 "json",
                 models.CreateAuthenticatorConnection,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -655,7 +653,7 @@ class Authenticators(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -686,7 +684,7 @@ class Authenticators(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ResponseOK]:
+    ) -> models.ResponseOK:
         r"""Delete Authenticator
 
         Delete an authenticator. This requires all connections created by that authenticator to be deleted first.
@@ -724,6 +722,7 @@ class Authenticators(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -750,7 +749,7 @@ class Authenticators(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.ResponseOK], http_res)
+            return unmarshal_json_response(models.ResponseOK, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -781,7 +780,7 @@ class Authenticators(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ResponseOK]:
+    ) -> models.ResponseOK:
         r"""Delete Authenticator
 
         Delete an authenticator. This requires all connections created by that authenticator to be deleted first.
@@ -819,6 +818,7 @@ class Authenticators(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -845,7 +845,7 @@ class Authenticators(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.ResponseOK], http_res)
+            return unmarshal_json_response(models.ResponseOK, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res

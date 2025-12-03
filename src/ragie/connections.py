@@ -20,7 +20,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Create Connection
 
         Create a connection. This is only for non-oauth connections such as S3 compatible connections, Freshdesk, and Zendesk.
@@ -61,6 +61,7 @@ class Connections(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.PublicCreateConnection
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -87,7 +88,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -120,7 +121,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Create Connection
 
         Create a connection. This is only for non-oauth connections such as S3 compatible connections, Freshdesk, and Zendesk.
@@ -161,6 +162,7 @@ class Connections(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.PublicCreateConnection
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -187,7 +189,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -265,6 +267,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -311,9 +314,7 @@ class Connections(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListConnectionsConnectionsGetResponse(
-                result=unmarshal_json_response(
-                    Optional[models.ConnectionList], http_res
-                ),
+                result=unmarshal_json_response(models.ConnectionList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -391,6 +392,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -437,9 +439,7 @@ class Connections(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListConnectionsConnectionsGetResponse(
-                result=unmarshal_json_response(
-                    Optional[models.ConnectionList], http_res
-                ),
+                result=unmarshal_json_response(models.ConnectionList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -470,7 +470,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.OAuthURLResponse]:
+    ) -> models.OAuthURLResponse:
         r"""Create Oauth Redirect Url
 
         Creates a redirect url to redirect the user to when initializing an embedded connector.
@@ -511,6 +511,7 @@ class Connections(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.OAuthURLCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -537,7 +538,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.OAuthURLResponse], http_res)
+            return unmarshal_json_response(models.OAuthURLResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -566,7 +567,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.OAuthURLResponse]:
+    ) -> models.OAuthURLResponse:
         r"""Create Oauth Redirect Url
 
         Creates a redirect url to redirect the user to when initializing an embedded connector.
@@ -607,6 +608,7 @@ class Connections(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.OAuthURLCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -633,7 +635,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.OAuthURLResponse], http_res)
+            return unmarshal_json_response(models.OAuthURLResponse, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -661,7 +663,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ListConnectorSourceTypeInfo]:
+    ) -> models.ListConnectorSourceTypeInfo:
         r"""List Connection Source Types
 
         List available connection source types like 'google_drive' and 'notion' along with their metadata
@@ -693,6 +695,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -719,9 +722,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.ListConnectorSourceTypeInfo], http_res
-            )
+            return unmarshal_json_response(models.ListConnectorSourceTypeInfo, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
@@ -744,7 +745,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ListConnectorSourceTypeInfo]:
+    ) -> models.ListConnectorSourceTypeInfo:
         r"""List Connection Source Types
 
         List available connection source types like 'google_drive' and 'notion' along with their metadata
@@ -776,6 +777,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -802,9 +804,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.ListConnectorSourceTypeInfo], http_res
-            )
+            return unmarshal_json_response(models.ListConnectorSourceTypeInfo, http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
@@ -832,7 +832,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Set Connection Enabled
 
         Enable or disable the connection. A disabled connection won't sync.
@@ -881,6 +881,7 @@ class Connections(BaseSDK):
                 "json",
                 models.SetConnectionEnabledPayload,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -907,7 +908,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -940,7 +941,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Set Connection Enabled
 
         Enable or disable the connection. A disabled connection won't sync.
@@ -989,6 +990,7 @@ class Connections(BaseSDK):
                 "json",
                 models.SetConnectionEnabledPayload,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1015,7 +1017,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1045,7 +1047,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Update Connection
 
         Updates a connections metadata or mode. These changes will be seen after the next sync.
@@ -1090,6 +1092,7 @@ class Connections(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.connection_base, False, False, "json", models.ConnectionBase
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1116,7 +1119,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1146,7 +1149,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Update Connection
 
         Updates a connections metadata or mode. These changes will be seen after the next sync.
@@ -1191,6 +1194,7 @@ class Connections(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.connection_base, False, False, "json", models.ConnectionBase
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1217,7 +1221,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1246,7 +1250,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Get Connection
 
         Get a connection.
@@ -1284,6 +1288,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1310,7 +1315,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1339,7 +1344,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Get Connection
 
         Get a connection.
@@ -1377,6 +1382,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1403,7 +1409,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1432,7 +1438,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ConnectionStats]:
+    ) -> models.ConnectionStats:
         r"""Get Connection Stats
 
         Lists connection stats: total documents active documents, total active pages.
@@ -1470,6 +1476,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1496,7 +1503,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.ConnectionStats], http_res)
+            return unmarshal_json_response(models.ConnectionStats, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1525,7 +1532,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ConnectionStats]:
+    ) -> models.ConnectionStats:
         r"""Get Connection Stats
 
         Lists connection stats: total documents active documents, total active pages.
@@ -1563,6 +1570,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1589,7 +1597,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.ConnectionStats], http_res)
+            return unmarshal_json_response(models.ConnectionStats, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1621,7 +1629,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Set Connection Limits
 
         Sets limits on a connection. Limits can be set on the total number of pages a connection can sync. When the limit is reached, the connection will be disabled. Limit may be removed by setting it to `null`.
@@ -1670,6 +1678,7 @@ class Connections(BaseSDK):
                 "json",
                 models.ConnectionLimitParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1696,7 +1705,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1728,7 +1737,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Connection]:
+    ) -> models.Connection:
         r"""Set Connection Limits
 
         Sets limits on a connection. Limits can be set on the total number of pages a connection can sync. When the limit is reached, the connection will be disabled. Limit may be removed by setting it to `null`.
@@ -1777,6 +1786,7 @@ class Connections(BaseSDK):
                 "json",
                 models.ConnectionLimitParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1803,7 +1813,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Connection], http_res)
+            return unmarshal_json_response(models.Connection, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1835,7 +1845,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Dict[str, str]]:
+    ) -> Dict[str, str]:
         r"""Delete Connection
 
         Schedules a connection to be deleted. You can choose to keep the files from the connection or delete them all. If you keep the files, they will no longer be associated to the connection. Deleting can take some time, so you will still see files for a bit after this is called.
@@ -1884,6 +1894,7 @@ class Connections(BaseSDK):
                 "json",
                 models.DeleteConnectionPayload,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1910,7 +1921,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Dict[str, str]], http_res)
+            return unmarshal_json_response(Dict[str, str], http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1942,7 +1953,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Dict[str, str]]:
+    ) -> Dict[str, str]:
         r"""Delete Connection
 
         Schedules a connection to be deleted. You can choose to keep the files from the connection or delete them all. If you keep the files, they will no longer be associated to the connection. Deleting can take some time, so you will still see files for a bit after this is called.
@@ -1991,6 +2002,7 @@ class Connections(BaseSDK):
                 "json",
                 models.DeleteConnectionPayload,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2017,7 +2029,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Dict[str, str]], http_res)
+            return unmarshal_json_response(Dict[str, str], http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2046,7 +2058,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ResponseOK]:
+    ) -> models.ResponseOK:
         r"""Sync Connection
 
         Schedules a connector to sync as soon as possible.
@@ -2084,6 +2096,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2110,7 +2123,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.ResponseOK], http_res)
+            return unmarshal_json_response(models.ResponseOK, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2141,7 +2154,7 @@ class Connections(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ResponseOK]:
+    ) -> models.ResponseOK:
         r"""Sync Connection
 
         Schedules a connector to sync as soon as possible.
@@ -2179,6 +2192,7 @@ class Connections(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2205,7 +2219,7 @@ class Connections(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.ResponseOK], http_res)
+            return unmarshal_json_response(models.ResponseOK, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
