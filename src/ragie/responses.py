@@ -17,7 +17,7 @@ class Responses(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Response]:
+    ) -> models.Response:
         r"""Create Response
 
         Create a response. This will generate an LLM or agentic response. At this time the only supported model is `deep-search`. Responses may be streamed or returned synchronously. The `retrieve` tool is currently the only supported tool, more tools will be added in the future. A single partition may be provided in the retrieve tool. If omitted the `default` partition is used.
@@ -58,6 +58,7 @@ class Responses(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.Request
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -84,7 +85,7 @@ class Responses(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Response], http_res)
+            return unmarshal_json_response(models.Response, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -113,7 +114,7 @@ class Responses(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Response]:
+    ) -> models.Response:
         r"""Create Response
 
         Create a response. This will generate an LLM or agentic response. At this time the only supported model is `deep-search`. Responses may be streamed or returned synchronously. The `retrieve` tool is currently the only supported tool, more tools will be added in the future. A single partition may be provided in the retrieve tool. If omitted the `default` partition is used.
@@ -154,6 +155,7 @@ class Responses(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.Request
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -180,7 +182,7 @@ class Responses(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Response], http_res)
+            return unmarshal_json_response(models.Response, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -209,7 +211,7 @@ class Responses(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Response]:
+    ) -> models.Response:
         r"""Get Response
 
         Get a response by its ID. This will return the response and its status. If the response is still in progress, the status will be `in_progress`. If the response is completed, the status will be `completed`. If the response is failed, the status will be `failed`.
@@ -247,6 +249,7 @@ class Responses(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -273,7 +276,7 @@ class Responses(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Response], http_res)
+            return unmarshal_json_response(models.Response, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -302,7 +305,7 @@ class Responses(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Response]:
+    ) -> models.Response:
         r"""Get Response
 
         Get a response by its ID. This will return the response and its status. If the response is still in progress, the status will be `in_progress`. If the response is completed, the status will be `completed`. If the response is failed, the status will be `failed`.
@@ -340,6 +343,7 @@ class Responses(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -366,7 +370,7 @@ class Responses(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Response], http_res)
+            return unmarshal_json_response(models.Response, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res

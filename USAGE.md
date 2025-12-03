@@ -15,8 +15,6 @@ with Ragie(
         },
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 ```
@@ -42,8 +40,6 @@ async def main():
                 "content": open("example.file", "rb"),
             },
         })
-
-        assert res is not None
 
         # Handle response
         print(res)
@@ -76,8 +72,6 @@ with Ragie(
             },
         ),
     ))
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -115,8 +109,6 @@ async def main():
             ),
         ))
 
-        assert res is not None
-
         # Handle response
         print(res)
 
@@ -139,8 +131,6 @@ with Ragie(
         "client_id": "<id>",
         "client_secret": "<value>",
     })
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -168,8 +158,6 @@ async def main():
             "client_id": "<id>",
             "client_secret": "<value>",
         })
-
-        assert res is not None
 
         # Handle response
         print(res)
@@ -202,8 +190,6 @@ with Ragie(
             ),
         ),
     ))
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -240,8 +226,6 @@ async def main():
                 ),
             ),
         ))
-
-        assert res is not None
 
         # Handle response
         print(res)

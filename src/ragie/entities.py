@@ -17,7 +17,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[List[models.Instruction]]:
+    ) -> List[models.Instruction]:
         r"""List Instructions
 
         List all instructions.
@@ -49,6 +49,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -75,7 +76,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[List[models.Instruction]], http_res)
+            return unmarshal_json_response(List[models.Instruction], http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
@@ -98,7 +99,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[List[models.Instruction]]:
+    ) -> List[models.Instruction]:
         r"""List Instructions
 
         List all instructions.
@@ -130,6 +131,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -156,7 +158,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[List[models.Instruction]], http_res)
+            return unmarshal_json_response(List[models.Instruction], http_res)
         if utils.match_response(http_res, ["401", "402", "429"], "application/json"):
             response_data = unmarshal_json_response(models.ErrorMessageData, http_res)
             raise models.ErrorMessage(response_data, http_res)
@@ -182,7 +184,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Instruction]:
+    ) -> models.Instruction:
         r"""Create Instruction
 
         Create a new instruction. Instructions are applied to documents as they are created or updated. The results of the instruction are stored as structured data in the schema defined by the `entity_schema` parameter. The `prompt` parameter is a natural language instruction which will be applied to documents. This feature is in beta and may change in the future.
@@ -223,6 +225,7 @@ class Entities(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateInstructionParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -249,7 +252,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Instruction], http_res)
+            return unmarshal_json_response(models.Instruction, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -280,7 +283,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Instruction]:
+    ) -> models.Instruction:
         r"""Create Instruction
 
         Create a new instruction. Instructions are applied to documents as they are created or updated. The results of the instruction are stored as structured data in the schema defined by the `entity_schema` parameter. The `prompt` parameter is a natural language instruction which will be applied to documents. This feature is in beta and may change in the future.
@@ -321,6 +324,7 @@ class Entities(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateInstructionParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -347,7 +351,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Instruction], http_res)
+            return unmarshal_json_response(models.Instruction, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -379,7 +383,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Instruction]:
+    ) -> models.Instruction:
         r"""Update Instruction
 
         :param instruction_id: The ID of the instruction.
@@ -426,6 +430,7 @@ class Entities(BaseSDK):
                 "json",
                 models.UpdateInstructionParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -452,7 +457,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Instruction], http_res)
+            return unmarshal_json_response(models.Instruction, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -484,7 +489,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Instruction]:
+    ) -> models.Instruction:
         r"""Update Instruction
 
         :param instruction_id: The ID of the instruction.
@@ -531,6 +536,7 @@ class Entities(BaseSDK):
                 "json",
                 models.UpdateInstructionParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -557,7 +563,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Instruction], http_res)
+            return unmarshal_json_response(models.Instruction, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -586,7 +592,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Dict[str, str]]:
+    ) -> Dict[str, str]:
         r"""Delete Instruction
 
         Delete an instruction. This will delete the instruction and all entities generated by it. This operation is irreversible.
@@ -624,6 +630,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -650,7 +657,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Dict[str, str]], http_res)
+            return unmarshal_json_response(Dict[str, str], http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -679,7 +686,7 @@ class Entities(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Dict[str, str]]:
+    ) -> Dict[str, str]:
         r"""Delete Instruction
 
         Delete an instruction. This will delete the instruction and all entities generated by it. This operation is irreversible.
@@ -717,6 +724,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -743,7 +751,7 @@ class Entities(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Dict[str, str]], http_res)
+            return unmarshal_json_response(Dict[str, str], http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -811,6 +819,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -859,7 +868,7 @@ class Entities(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListEntitiesByInstructionResponse(
-                result=unmarshal_json_response(Optional[models.EntityList], http_res),
+                result=unmarshal_json_response(models.EntityList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -929,6 +938,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -977,7 +987,7 @@ class Entities(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListEntitiesByInstructionResponse(
-                result=unmarshal_json_response(Optional[models.EntityList], http_res),
+                result=unmarshal_json_response(models.EntityList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -1047,6 +1057,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1095,7 +1106,7 @@ class Entities(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListEntitiesByDocumentResponse(
-                result=unmarshal_json_response(Optional[models.EntityList], http_res),
+                result=unmarshal_json_response(models.EntityList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -1165,6 +1176,7 @@ class Entities(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1213,7 +1225,7 @@ class Entities(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListEntitiesByDocumentResponse(
-                result=unmarshal_json_response(Optional[models.EntityList], http_res),
+                result=unmarshal_json_response(models.EntityList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):

@@ -59,6 +59,7 @@ class Partitions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -103,9 +104,7 @@ class Partitions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPartitionsPartitionsGetResponse(
-                result=unmarshal_json_response(
-                    Optional[models.PartitionList], http_res
-                ),
+                result=unmarshal_json_response(models.PartitionList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -177,6 +176,7 @@ class Partitions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -221,9 +221,7 @@ class Partitions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPartitionsPartitionsGetResponse(
-                result=unmarshal_json_response(
-                    Optional[models.PartitionList], http_res
-                ),
+                result=unmarshal_json_response(models.PartitionList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -256,7 +254,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Partition]:
+    ) -> models.Partition:
         r"""Create Partition
 
         Create a new partition. Partitions are used to scope documents, connections, and instructions. Partitions must be lowercase alphanumeric and may only include the special characters `_` and `-`. A partition may also be created by creating a document in it. Limits for a partition may optionally be defined when creating.
@@ -297,6 +295,7 @@ class Partitions(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreatePartitionParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -323,7 +322,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Partition], http_res)
+            return unmarshal_json_response(models.Partition, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -354,7 +353,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Partition]:
+    ) -> models.Partition:
         r"""Create Partition
 
         Create a new partition. Partitions are used to scope documents, connections, and instructions. Partitions must be lowercase alphanumeric and may only include the special characters `_` and `-`. A partition may also be created by creating a document in it. Limits for a partition may optionally be defined when creating.
@@ -395,6 +394,7 @@ class Partitions(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreatePartitionParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -421,7 +421,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Partition], http_res)
+            return unmarshal_json_response(models.Partition, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -450,7 +450,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PartitionDetail]:
+    ) -> models.PartitionDetail:
         r"""Get Partition
 
         Get a partition by its ID. Includes usage information such as the number of documents and pages hosted and processed. The partition's limits are also included.
@@ -488,6 +488,7 @@ class Partitions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -514,7 +515,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.PartitionDetail], http_res)
+            return unmarshal_json_response(models.PartitionDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -543,7 +544,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PartitionDetail]:
+    ) -> models.PartitionDetail:
         r"""Get Partition
 
         Get a partition by its ID. Includes usage information such as the number of documents and pages hosted and processed. The partition's limits are also included.
@@ -581,6 +582,7 @@ class Partitions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -607,7 +609,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.PartitionDetail], http_res)
+            return unmarshal_json_response(models.PartitionDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -639,7 +641,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PartitionDetail]:
+    ) -> models.PartitionDetail:
         r"""Update Partition
 
         Updates a partition. This includes the partition's description and metadata schema.
@@ -688,6 +690,7 @@ class Partitions(BaseSDK):
                 "json",
                 models.UpdatePartitionParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -714,7 +717,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.PartitionDetail], http_res)
+            return unmarshal_json_response(models.PartitionDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -746,7 +749,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PartitionDetail]:
+    ) -> models.PartitionDetail:
         r"""Update Partition
 
         Updates a partition. This includes the partition's description and metadata schema.
@@ -795,6 +798,7 @@ class Partitions(BaseSDK):
                 "json",
                 models.UpdatePartitionParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -821,7 +825,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.PartitionDetail], http_res)
+            return unmarshal_json_response(models.PartitionDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -846,16 +850,18 @@ class Partitions(BaseSDK):
         self,
         *,
         partition_id: str,
+        async_: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Dict[str, str]]:
+    ) -> models.ResponseOK:
         r"""Delete Partition
 
         Deletes a partition and all of its associated data. This includes connections, documents, and partition specific instructions. This operation is irreversible.
 
         :param partition_id:
+        :param async_: If true, performs partition deletion asynchronously.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -873,6 +879,7 @@ class Partitions(BaseSDK):
 
         request = models.DeletePartitionPartitionsPartitionIDDeleteRequest(
             partition_id=partition_id,
+            async_=async_,
         )
 
         req = self._build_request(
@@ -888,6 +895,7 @@ class Partitions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -913,8 +921,8 @@ class Partitions(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Dict[str, str]], http_res)
+        if utils.match_response(http_res, ["200", "202"], "application/json"):
+            return unmarshal_json_response(models.ResponseOK, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -939,16 +947,18 @@ class Partitions(BaseSDK):
         self,
         *,
         partition_id: str,
+        async_: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Dict[str, str]]:
+    ) -> models.ResponseOK:
         r"""Delete Partition
 
         Deletes a partition and all of its associated data. This includes connections, documents, and partition specific instructions. This operation is irreversible.
 
         :param partition_id:
+        :param async_: If true, performs partition deletion asynchronously.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -966,6 +976,7 @@ class Partitions(BaseSDK):
 
         request = models.DeletePartitionPartitionsPartitionIDDeleteRequest(
             partition_id=partition_id,
+            async_=async_,
         )
 
         req = self._build_request_async(
@@ -981,6 +992,7 @@ class Partitions(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1006,8 +1018,8 @@ class Partitions(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Dict[str, str]], http_res)
+        if utils.match_response(http_res, ["200", "202"], "application/json"):
+            return unmarshal_json_response(models.ResponseOK, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1039,7 +1051,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PartitionDetail]:
+    ) -> models.PartitionDetail:
         r"""Set Partition Limits
 
         Sets limits on a partition. Limits can be set on the total number of pages a partition can host and process. When the limit is reached, the partition will be disabled. A limit may be removed by setting it to `null`.
@@ -1088,6 +1100,7 @@ class Partitions(BaseSDK):
                 "json",
                 models.PartitionLimitParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1114,7 +1127,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.PartitionDetail], http_res)
+            return unmarshal_json_response(models.PartitionDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1146,7 +1159,7 @@ class Partitions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PartitionDetail]:
+    ) -> models.PartitionDetail:
         r"""Set Partition Limits
 
         Sets limits on a partition. Limits can be set on the total number of pages a partition can host and process. When the limit is reached, the partition will be disabled. A limit may be removed by setting it to `null`.
@@ -1195,6 +1208,7 @@ class Partitions(BaseSDK):
                 "json",
                 models.PartitionLimitParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1221,7 +1235,7 @@ class Partitions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.PartitionDetail], http_res)
+            return unmarshal_json_response(models.PartitionDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res

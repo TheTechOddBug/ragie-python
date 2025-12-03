@@ -21,7 +21,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Document]:
+    ) -> models.Document:
         r"""Create Document
 
         On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
@@ -62,6 +62,7 @@ class Documents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", models.CreateDocumentParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -88,7 +89,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Document], http_res)
+            return unmarshal_json_response(models.Document, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -121,7 +122,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Document]:
+    ) -> models.Document:
         r"""Create Document
 
         On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
@@ -162,6 +163,7 @@ class Documents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", models.CreateDocumentParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -188,7 +190,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Document], http_res)
+            return unmarshal_json_response(models.Document, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -259,6 +261,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -307,7 +310,7 @@ class Documents(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListDocumentsResponse(
-                result=unmarshal_json_response(Optional[models.DocumentList], http_res),
+                result=unmarshal_json_response(models.DocumentList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -380,6 +383,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -428,7 +432,7 @@ class Documents(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListDocumentsResponse(
-                result=unmarshal_json_response(Optional[models.DocumentList], http_res),
+                result=unmarshal_json_response(models.DocumentList, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "422", "application/json"):
@@ -463,7 +467,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Document]:
+    ) -> models.Document:
         r"""Create Document Raw
 
         Ingest a document as raw text. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
@@ -504,6 +508,7 @@ class Documents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateDocumentRawParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -530,7 +535,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Document], http_res)
+            return unmarshal_json_response(models.Document, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -563,7 +568,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Document]:
+    ) -> models.Document:
         r"""Create Document Raw
 
         Ingest a document as raw text. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`.
@@ -604,6 +609,7 @@ class Documents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateDocumentRawParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -630,7 +636,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Document], http_res)
+            return unmarshal_json_response(models.Document, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -664,7 +670,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Document]:
+    ) -> models.Document:
         r"""Create Document From Url
 
         Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
@@ -705,6 +711,7 @@ class Documents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateDocumentFromURLParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -731,7 +738,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Document], http_res)
+            return unmarshal_json_response(models.Document, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -765,7 +772,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Document]:
+    ) -> models.Document:
         r"""Create Document From Url
 
         Ingest a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
@@ -806,6 +813,7 @@ class Documents(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateDocumentFromURLParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -832,7 +840,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(Optional[models.Document], http_res)
+            return unmarshal_json_response(models.Document, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -864,7 +872,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentGet]:
+    ) -> models.DocumentGet:
         r"""Get Document
 
         :param document_id: The id of the document.
@@ -902,6 +910,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -928,7 +937,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentGet], http_res)
+            return unmarshal_json_response(models.DocumentGet, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -960,7 +969,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentGet]:
+    ) -> models.DocumentGet:
         r"""Get Document
 
         :param document_id: The id of the document.
@@ -998,6 +1007,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1024,7 +1034,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentGet], http_res)
+            return unmarshal_json_response(models.DocumentGet, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1057,7 +1067,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentDelete]:
+    ) -> models.DocumentDelete:
         r"""Delete Document
 
         :param document_id: The id of the document.
@@ -1097,6 +1107,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1123,7 +1134,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, ["200", "202"], "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentDelete], http_res)
+            return unmarshal_json_response(models.DocumentDelete, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1156,7 +1167,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentDelete]:
+    ) -> models.DocumentDelete:
         r"""Delete Document
 
         :param document_id: The id of the document.
@@ -1196,6 +1207,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1222,7 +1234,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, ["200", "202"], "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentDelete], http_res)
+            return unmarshal_json_response(models.DocumentDelete, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1257,7 +1269,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentFileUpdate]:
+    ) -> models.DocumentFileUpdate:
         r"""Update Document File
 
         :param document_id: The id of the document.
@@ -1306,6 +1318,7 @@ class Documents(BaseSDK):
                 "multipart",
                 models.UpdateDocumentFileParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1332,9 +1345,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.DocumentFileUpdate], http_res
-            )
+            return unmarshal_json_response(models.DocumentFileUpdate, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1369,7 +1380,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentFileUpdate]:
+    ) -> models.DocumentFileUpdate:
         r"""Update Document File
 
         :param document_id: The id of the document.
@@ -1418,6 +1429,7 @@ class Documents(BaseSDK):
                 "multipart",
                 models.UpdateDocumentFileParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1444,9 +1456,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.DocumentFileUpdate], http_res
-            )
+            return unmarshal_json_response(models.DocumentFileUpdate, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1481,7 +1491,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentRawUpdate]:
+    ) -> models.DocumentRawUpdate:
         r"""Update Document Raw
 
         :param document_id: The id of the document.
@@ -1530,6 +1540,7 @@ class Documents(BaseSDK):
                 "json",
                 models.UpdateDocumentRawParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1556,7 +1567,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentRawUpdate], http_res)
+            return unmarshal_json_response(models.DocumentRawUpdate, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1591,7 +1602,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentRawUpdate]:
+    ) -> models.DocumentRawUpdate:
         r"""Update Document Raw
 
         :param document_id: The id of the document.
@@ -1640,6 +1651,7 @@ class Documents(BaseSDK):
                 "json",
                 models.UpdateDocumentRawParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1666,7 +1678,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentRawUpdate], http_res)
+            return unmarshal_json_response(models.DocumentRawUpdate, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1702,7 +1714,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentURLUpdate]:
+    ) -> models.DocumentURLUpdate:
         r"""Update Document Url
 
         Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
@@ -1753,6 +1765,7 @@ class Documents(BaseSDK):
                 "json",
                 models.UpdateDocumentFromURLParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1779,7 +1792,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentURLUpdate], http_res)
+            return unmarshal_json_response(models.DocumentURLUpdate, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1815,7 +1828,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentURLUpdate]:
+    ) -> models.DocumentURLUpdate:
         r"""Update Document Url
 
         Updates a document from a publicly accessible URL. On ingest, the document goes through a series of steps before it is ready for retrieval. Each step is reflected in the status of the document which can be one of [`pending`, `partitioning`, `partitioned`, `refined`, `chunked`, `indexed`, `summary_indexed`, `keyword_indexed`, `ready`, `failed`]. The document is available for retrieval once it is in ready state. The summary index step can take a few seconds. You can optionally use the document for retrieval once it is in `indexed` state. However the summary will only be available once the state has changed to `summary_indexed` or `ready`. PDF files over 2000 pages are not supported in hi_res mode.
@@ -1866,6 +1879,7 @@ class Documents(BaseSDK):
                 "json",
                 models.UpdateDocumentFromURLParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1892,7 +1906,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentURLUpdate], http_res)
+            return unmarshal_json_response(models.DocumentURLUpdate, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -1928,7 +1942,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PatchDocumentMetadataResponsePatchdocumentmetadata]:
+    ) -> models.PatchDocumentMetadataResponsePatchdocumentmetadata:
         r"""Patch Document Metadata
 
         :param document_id: The id of the document.
@@ -1977,6 +1991,7 @@ class Documents(BaseSDK):
                 "json",
                 models.PatchDocumentMetadataParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2004,8 +2019,7 @@ class Documents(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                Optional[models.PatchDocumentMetadataResponsePatchdocumentmetadata],
-                http_res,
+                models.PatchDocumentMetadataResponsePatchdocumentmetadata, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -2042,7 +2056,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.PatchDocumentMetadataResponsePatchdocumentmetadata]:
+    ) -> models.PatchDocumentMetadataResponsePatchdocumentmetadata:
         r"""Patch Document Metadata
 
         :param document_id: The id of the document.
@@ -2091,6 +2105,7 @@ class Documents(BaseSDK):
                 "json",
                 models.PatchDocumentMetadataParams,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2118,8 +2133,7 @@ class Documents(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                Optional[models.PatchDocumentMetadataResponsePatchdocumentmetadata],
-                http_res,
+                models.PatchDocumentMetadataResponsePatchdocumentmetadata, http_res
             )
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
@@ -2153,7 +2167,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentChunkList]:
+    ) -> models.DocumentChunkList:
         r"""Get Document Chunks
 
         List all document chunks sorted by index in ascending order. May be limited to a range of chunk indices with the `start_index` and `end_index` parameters. Documents created prior to 9/18/2024, which have not been updated since, have chunks which do not include an index and their index will be returned as -1. They will be sorted by their ID instead. Updating the document using the `Update Document File` or `Update Document Raw` endpoint will regenerate document chunks, including their index. Results are paginated with a max limit of 100. When more chunks are available, a `cursor` will be provided. Use the `cursor` parameter to retrieve the subsequent page.
@@ -2191,6 +2205,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2217,7 +2232,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentChunkList], http_res)
+            return unmarshal_json_response(models.DocumentChunkList, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2250,7 +2265,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentChunkList]:
+    ) -> models.DocumentChunkList:
         r"""Get Document Chunks
 
         List all document chunks sorted by index in ascending order. May be limited to a range of chunk indices with the `start_index` and `end_index` parameters. Documents created prior to 9/18/2024, which have not been updated since, have chunks which do not include an index and their index will be returned as -1. They will be sorted by their ID instead. Updating the document using the `Update Document File` or `Update Document Raw` endpoint will regenerate document chunks, including their index. Results are paginated with a max limit of 100. When more chunks are available, a `cursor` will be provided. Use the `cursor` parameter to retrieve the subsequent page.
@@ -2288,6 +2303,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2314,7 +2330,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentChunkList], http_res)
+            return unmarshal_json_response(models.DocumentChunkList, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2347,7 +2363,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentChunkDetail]:
+    ) -> models.DocumentChunkDetail:
         r"""Get Document Chunk
 
         Gets a document chunk by its document and chunk ID.
@@ -2389,6 +2405,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2415,9 +2432,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.DocumentChunkDetail], http_res
-            )
+            return unmarshal_json_response(models.DocumentChunkDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2450,7 +2465,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentChunkDetail]:
+    ) -> models.DocumentChunkDetail:
         r"""Get Document Chunk
 
         Gets a document chunk by its document and chunk ID.
@@ -2492,6 +2507,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2518,9 +2534,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.DocumentChunkDetail], http_res
-            )
+            return unmarshal_json_response(models.DocumentChunkDetail, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2554,7 +2568,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Any]:
+    ) -> Any:
         r"""Get Document Chunk Content
 
         Returns the content of a document chunk in the requested format. Can be used to stream media of the content for audio/video documents.
@@ -2592,6 +2606,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2618,7 +2633,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Any], http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2650,7 +2665,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[Any]:
+    ) -> Any:
         r"""Get Document Chunk Content
 
         Returns the content of a document chunk in the requested format. Can be used to stream media of the content for audio/video documents.
@@ -2688,6 +2703,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2714,7 +2730,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[Any], http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2745,7 +2761,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentWithContent]:
+    ) -> models.DocumentWithContent:
         r"""Get Document Content
 
         Get the content of a document. The `media_type` parameter can be used to request the content in a different format. When requesting as `application/json` additional metadata about the document will be included. If the original document contained content such as images or other non-textual media, this response will include a text description of that media instead of the original file data. Using mime types such as `audio/mpeg` or `video/mp4` will stream the file in a format that can be provided to an audio video player.
@@ -2783,6 +2799,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2809,9 +2826,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.DocumentWithContent], http_res
-            )
+            return unmarshal_json_response(models.DocumentWithContent, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2844,7 +2859,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentWithContent]:
+    ) -> models.DocumentWithContent:
         r"""Get Document Content
 
         Get the content of a document. The `media_type` parameter can be used to request the content in a different format. When requesting as `application/json` additional metadata about the document will be included. If the original document contained content such as images or other non-textual media, this response will include a text description of that media instead of the original file data. Using mime types such as `audio/mpeg` or `video/mp4` will stream the file in a format that can be provided to an audio video player.
@@ -2882,6 +2897,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2908,9 +2924,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                Optional[models.DocumentWithContent], http_res
-            )
+            return unmarshal_json_response(models.DocumentWithContent, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -2942,7 +2956,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[httpx.Response]:
+    ) -> httpx.Response:
         r"""Get Document Source
 
         Get the source file of a document. The source file is the original file that was uploaded to create the document. If the document was created from a URL, the source file will be the content of the URL. If the document was created by a connection, the source file will vary based on the type of the connection. For example, a Google Drive connection will return the file that was synced from the Google Drive, while a SalesForce connection would return a JSON file of the data synced from SalesForce.
@@ -2982,6 +2996,7 @@ class Documents(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3049,7 +3064,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[httpx.Response]:
+    ) -> httpx.Response:
         r"""Get Document Source
 
         Get the source file of a document. The source file is the original file that was uploaded to create the document. If the document was created from a URL, the source file will be the content of the URL. If the document was created by a connection, the source file will vary based on the type of the connection. For example, a Google Drive connection will return the file that was synced from the Google Drive, while a SalesForce connection would return a JSON file of the data synced from SalesForce.
@@ -3089,6 +3104,7 @@ class Documents(BaseSDK):
             accept_header_value="*/*",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3156,7 +3172,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentSummary]:
+    ) -> models.DocumentSummary:
         r"""Get Document Summary
 
         Get a LLM generated summary of the document. The summary is created when the document is first created or updated. Documents of types ['xls', 'xlsx', 'csv', 'json'] are not supported for summarization. Documents greater than 1M in token length are not supported. This feature is in beta and may change in the future.
@@ -3196,6 +3212,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3222,7 +3239,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentSummary], http_res)
+            return unmarshal_json_response(models.DocumentSummary, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -3254,7 +3271,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.DocumentSummary]:
+    ) -> models.DocumentSummary:
         r"""Get Document Summary
 
         Get a LLM generated summary of the document. The summary is created when the document is first created or updated. Documents of types ['xls', 'xlsx', 'csv', 'json'] are not supported for summarization. Documents greater than 1M in token length are not supported. This feature is in beta and may change in the future.
@@ -3294,6 +3311,7 @@ class Documents(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -3320,7 +3338,7 @@ class Documents(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.DocumentSummary], http_res)
+            return unmarshal_json_response(models.DocumentSummary, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res

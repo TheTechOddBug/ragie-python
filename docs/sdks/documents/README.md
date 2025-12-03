@@ -44,8 +44,6 @@ with Ragie(
         },
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -138,8 +136,6 @@ with Ragie(
         "data": "<value>",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -185,8 +181,6 @@ with Ragie(
         "url": "https://plain-cleaner.com/",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -228,8 +222,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.documents.get(document_id="00000000-0000-0000-0000-000000000000", partition="acme_customer_id")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -273,8 +265,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.documents.delete(document_id="00000000-0000-0000-0000-000000000000", async_=False, partition="acme_customer_id")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -325,8 +315,6 @@ with Ragie(
         },
     }, partition="acme_customer_id")
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -373,8 +361,6 @@ with Ragie(
         "data": "<value>",
     }, partition="acme_customer_id")
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -420,8 +406,6 @@ with Ragie(
     res = r_client.documents.update_document_from_url(document_id="00000000-0000-0000-0000-000000000000", update_document_from_url_params={
         "url": "https://sarcastic-colon.org",
     }, partition="acme_customer_id")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -478,8 +462,6 @@ with Ragie(
         },
     }, partition="acme_customer_id")
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -529,8 +511,6 @@ with Ragie(
         "partition": "acme_customer_id",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -572,8 +552,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.documents.get_chunk(document_id="00000000-0000-0000-0000-000000000000", chunk_id="00000000-0000-0000-0000-000000000000", partition="acme_customer_id")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -625,8 +603,6 @@ with Ragie(
         "partition": "acme_customer_id",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -674,8 +650,6 @@ with Ragie(
         "partition": "acme_customer_id",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -717,8 +691,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.documents.get_source(document_id="00000000-0000-0000-0000-000000000000", partition="acme_customer_id")
-
-    assert res is not None
 
     # Handle response
     print(res)
@@ -762,8 +734,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.documents.get_summary(document_id="00000000-0000-0000-0000-000000000000", partition="acme_customer_id")
-
-    assert res is not None
 
     # Handle response
     print(res)

@@ -29,8 +29,6 @@ with Ragie(
 
     res = r_client.entities.list_instructions()
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -89,8 +87,6 @@ with Ragie(
         "partition": "<value>",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -135,8 +131,6 @@ with Ragie(
         "active": True,
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -179,8 +173,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.entities.delete(instruction_id="00000000-0000-0000-0000-000000000000")
-
-    assert res is not None
 
     # Handle response
     print(res)

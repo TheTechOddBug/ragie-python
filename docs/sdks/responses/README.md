@@ -27,8 +27,6 @@ with Ragie(
         "input": "<value>",
     })
 
-    assert res is not None
-
     # Handle response
     print(res)
 
@@ -70,8 +68,6 @@ with Ragie(
 ) as r_client:
 
     res = r_client.responses.get(response_id="e613d0b7-4c9a-45ed-b32c-302d7f1c5daf")
-
-    assert res is not None
 
     # Handle response
     print(res)

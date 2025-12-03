@@ -17,7 +17,7 @@ class Retrievals(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Retrieval]:
+    ) -> models.Retrieval:
         r"""Retrieve
 
         :param request: The request object to send.
@@ -56,6 +56,7 @@ class Retrievals(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.RetrieveParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -82,7 +83,7 @@ class Retrievals(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Retrieval], http_res)
+            return unmarshal_json_response(models.Retrieval, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
@@ -111,7 +112,7 @@ class Retrievals(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.Retrieval]:
+    ) -> models.Retrieval:
         r"""Retrieve
 
         :param request: The request object to send.
@@ -150,6 +151,7 @@ class Retrievals(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.RetrieveParams
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -176,7 +178,7 @@ class Retrievals(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Optional[models.Retrieval], http_res)
+            return unmarshal_json_response(models.Retrieval, http_res)
         if utils.match_response(http_res, "422", "application/json"):
             response_data = unmarshal_json_response(
                 models.HTTPValidationErrorData, http_res
